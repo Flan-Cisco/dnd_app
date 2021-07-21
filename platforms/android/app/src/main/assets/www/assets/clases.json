@@ -1,0 +1,75 @@
+{
+    "clase": [{
+        "nombre": "Barbarian",
+        "savings": ["str","con"],
+        "skills": ["Animal Handling", "Athletics","Intimidation","Nature","Perception","Survival"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Bard",
+        "savings": ["dex","cha"],
+        "skills": ["any"],
+        "nSkills": 3
+    },
+    {
+        "nombre": "Cleric",
+        "savings": ["wis","cha"],
+        "skills": ["History","Insight","Medicine","Persuasion","Religion"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Fighter",
+        "savings": ["str","con"],
+        "skills": ["Acrobatics","Animal Handling","Athletics","History","Insight","Intimidation","Perception","Survival"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Paladin",
+        "savings": ["wis","cha"],
+        "skills": ["Athletics","Insight","Intimidation","Medicine","Persuasion","Religion"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Monk",
+        "savings": ["dex","str"],
+        "skills": ["Acrobatics","Athletics","History","Insight","Religion","Stealth"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Rogue",
+        "savings": ["dex","int"],
+        "skills": ["Acrobatics","Athletics","Deception","Insight","Intimidation","Investigation","Perception","Performance","Persuasion","Sleight of Hand","Stealth"],
+        "nSkills": 4
+    },
+    {
+        "nombre": "Druid",
+        "savings": ["int","wis"],
+        "skills": ["Arcana","Animal Handling","Insight","Medicine","Nature","Perception","Religion","Survival"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Sorcerer",
+        "savings": ["con","cha"],
+        "skills": ["Arcana","Deception","Insight","Intimidation","Persuasion","Religion"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Wizard",
+        "savings": ["int","wis"],
+        "skills": ["Arcana","History","Insight","Investigation","Medicine","Religion"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Warlock",
+        "savings": ["wis","cha"],
+        "skills": ["Arcana","Deception","History","Intimidation","Investigation","Nature","Religion"],
+        "nSkills": 2
+    },
+    {
+        "nombre": "Ranger",
+        "savings": ["str","dex"],
+        "skills": ["Animal Handling","Athletics","Insight","Investigation","Nature","Perception","Stealth","Survival"],
+        "nSkills": 3
+    }
+    ]
+}

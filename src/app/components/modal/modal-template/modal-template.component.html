@@ -1,0 +1,20 @@
+<ion-header translucent class="animate__animated animate__slideInUp">
+  <ion-toolbar>
+    <ion-title>{{titulo}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Skills'">
+  <app-skills [personaje]="personaje" ></app-skills>
+</ion-content>
+
+<ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Atributos'">
+  <app-stats></app-stats>
+</ion-content>
+
+<ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Languages'">
+  <app-languages [personaje]="personaje"></app-languages>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "dnd2",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,18 @@
+<div class="popover">
+  <div class="celda-cabecera">
+    <p>Bono Racial</p>
+  </div>
+  <div class="celda" *ngFor="let atributo of atributos">
+    <p>{{atributo}}</p>
+    <div class="bonos-raza">
+      <p>asdasd</p>
+      <ion-icon name="arrow-forward-sharp"></ion-icon>
+    </div>
+    <div class="atributo">
+      <p>{{this.stats[atributo.toLowerCase()]}}</p>
+      <p *ngIf="this.stats[atributo.toLowerCase()] >=10">(+{{calcularModificador(this.stats[atributo.toLowerCase()])}})</p>
+      <p class="stat-bajo" *ngIf="this.stats[atributo.toLowerCase()] < 10">(-{{calcularModificador(this.stats[atributo.toLowerCase()])}})</p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="/" slot="start"></ion-back-button>
+    <ion-title>{{personaje.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <app-crear [clases]="clases" [backgrounds]="backgrounds" [razas]="razas" [subrazas]="subrazas"></app-crear>
+</ion-content>

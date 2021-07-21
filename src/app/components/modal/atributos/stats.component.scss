@@ -1,0 +1,30 @@
+.lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 62px);
+    background-color: #1e1e1e;
+    // margin-top: 10px;
+    // padding-top:15px;
+    padding-right: 15px;
+}
+
+.celda {
+    display: grid;
+    grid-template-columns: 30px 1fr 160px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-bottom: 0.3px solid #212121;
+}
+.atributo {
+    grid-column: 1;
+    align-self: center;
+
+}
+.atributo-raza {
+    grid-column: 2;
+    justify-self: center;
+}
+.atributo-stat {
+    grid-column: 3;
+    justify-self: end;
+}

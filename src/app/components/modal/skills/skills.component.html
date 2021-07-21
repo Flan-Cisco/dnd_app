@@ -1,0 +1,11 @@
+<ion-list>
+  <ion-item>
+    <ion-label>Choose {{nSkills}} proficiencies:</ion-label>
+  </ion-item>
+  <ion-item *ngFor="let skill of skillsSeleccionadas">
+    <ion-label>{{skill.nombre}}
+      <p>{{validarMod(skill.nombre) + sumarProf(skill.proficence) | signoPipe}}</p>
+    </ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="skill.proficence" [disabled]="validar() && !skill.proficence || validarBack(skill.nombre)"></ion-checkbox>
+  </ion-item>
+</ion-list>

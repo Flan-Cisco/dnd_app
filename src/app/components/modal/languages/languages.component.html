@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="grid">
+    <p class="item-title" *ngIf="!cambioLenguaje">Choose {{nLanguages}} extra languages:</p>
+    <p class="item-title" *ngIf="cambioLenguaje">Choose exotics languages:</p>
+    <div class="item-togg">
+      <p>Exotic:</p>
+      <ion-toggle color="success" [(ngModel)]="cambioLenguaje"></ion-toggle>
+    </div>
+  </div>
+  <div *ngIf="!cambioLenguaje">
+    <ion-item *ngFor="let lan of languagesCommon">
+      <ion-label>{{lan.lan}}
+      </ion-label>
+      
+      <ion-checkbox slot="end" [(ngModel)]="lan.checked" [disabled]="validar() && !lan.checked || validarBack(lan.lan)" ></ion-checkbox>
+    </ion-item>
+  </div>
+  <div *ngIf="cambioLenguaje">
+    <ion-item *ngFor="let lan of languagesExotic">
+      <ion-label>{{lan.lan}}
+      </ion-label>
+      
+      <ion-checkbox slot="end" [(ngModel)]="lan.checked"></ion-checkbox>
+    </ion-item>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="guardar()" color="success">
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
