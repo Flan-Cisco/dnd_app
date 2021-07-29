@@ -25,17 +25,6 @@ export class ServService {
 
   constructor() {
     this.fetchData("/assets/clases.json")
-    // .then(text => {
-    //   this.clases = (JSON.parse(text).clases)
-    //   this.skills = (JSON.parse(text).skills)
-    //   this.backgrounds = (JSON.parse(text).backgrounds)
-    //   this.skillList = (JSON.parse(text).skillList)
-    //   this.languages = (JSON.parse(text).languages)
-    //   this.razas = (JSON.parse(text).races)
-    //   this.subrazas = (JSON.parse(text).subraces)
-    // });
-    // fetch("/assets/clases.json")
-    //   .then(resp => resp.text())
     this.cargarStorage();
   }
 
