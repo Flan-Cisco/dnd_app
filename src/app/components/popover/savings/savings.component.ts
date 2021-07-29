@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
+import { Personaje } from 'src/app/models/personaje.model';
 import { Saves } from 'src/app/models/saves.model';
 import { ServService } from 'src/app/services/serv.service';
 
@@ -9,10 +10,7 @@ import { ServService } from 'src/app/services/serv.service';
   styleUrls: ['./savings.component.scss'],
 })
 export class SavingsComponent implements OnInit {
-
-  @Input() savings: Saves;
-  @Input() prof: number;
-  @Input() clase: string
+  @Input() personaje: Personaje;
 
   atributos: string[] = [
     "Str",
@@ -26,24 +24,19 @@ export class SavingsComponent implements OnInit {
   descClase: any;
   proffi = [];
   constructor(navParams: NavParams, public service:ServService) {
-    this.savings = navParams.get("savings");
-    this.prof = navParams.get("prof");
-    this.clase = navParams.get("clase");
-    console.log(this.savings);
+    this.personaje = navParams.get("personaje");
     for (let a of this.atributos) {
-      this.saves.push(this.savings[a.toLowerCase()])
+      this.saves.push(this.personaje.savings[a.toLowerCase()])
     }
 
-    this.descClase = this.service.clases.find(resp => {
-      return resp.nombre == this.clase;
-    });
+    this.descClase = this.service.clases[this.personaje.clase];
 
   }
 
   validarProf(atrib: string) {
     atrib = atrib.toLowerCase();
     if (this.descClase.savings.find(resp => resp == atrib)) {
-      this.proffi.push(this.prof);
+      this.proffi.push(this.personaje.proficiencia);
       return true;
     } else {
       this.proffi.push(0);

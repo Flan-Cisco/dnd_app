@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavParams, PopoverController } from '@ionic/angular';
-import { Stats } from 'src/app/models/stats.model';
+import { Personaje } from 'src/app/models/personaje.model';
 
 @Component({
   selector: 'stats-popover',
@@ -9,8 +9,7 @@ import { Stats } from 'src/app/models/stats.model';
 })
 export class StatsPopoverComponent implements OnInit {
 
-  @Input() stats: Stats;
-  @Input() raza: any;
+  @Input() personaje: Personaje;
 
   atributos: string[] = [
     "Str",
@@ -22,15 +21,12 @@ export class StatsPopoverComponent implements OnInit {
   ];
 
   constructor(public popoverCtrl: PopoverController, navParams: NavParams) {
-    this.stats = navParams.get("stats");
-    this.raza = navParams.get("raza")
-    console.log(this.stats);
-    console.log(this.raza);
+    this.personaje = navParams.get("personaje");
     
   }
   
   calcularModificador(stat: number) {
-    return Math.abs(Math.floor((stat-10)/2))
+    return Math.floor((stat-10)/2)
   }
 
   ngOnInit() {}

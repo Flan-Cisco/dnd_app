@@ -13,18 +13,16 @@ import { PopoverTemplateComponent } from '../popover/popover-template/popover-te
   styleUrls: ['./crear.component.scss'],
 })
 export class CrearComponent implements AfterContentInit {
-  
-  @Input() clases: any[];
-  @Input() backgrounds: any[];
-  @Input() razas: any[];
-  @Input() subrazas: any[];
 
   personaje: Personaje;
   status: number[] = [];
-  skills: string[];
   nSkills: number;
   raza: any = {};
   subraza: any = {};
+  keyClases: string[];
+  keyBackgrounds: string[];
+  keyRazas: string[];
+  keySubrazas: string[];
 
   
   constructor(/*public serviceDB: CargaDBService,*/ public service: ServService,
@@ -37,6 +35,15 @@ export class CrearComponent implements AfterContentInit {
       this.personaje = this.service.obtenerPersonaje(this.route.snapshot.paramMap.get('id'));
       this.setStats();
       console.log(this.personaje);
+      this.keyClases = Object.keys(this.service.clases);
+      this.keyBackgrounds = Object.keys(this.service.backgrounds);
+      this.keyRazas = Object.keys(this.service.razas);
+      if (this.personaje.raza) {
+        this.raza = this.service.razas[this.personaje.raza];
+        if ( this.raza.subraces){
+          this.keySubrazas = Object.keys(this.raza.subraces)
+        }
+      }
       
       // console.log(this.status);
       this.personaje.proficiencia = 1+Math.ceil(this.personaje.level/4);
@@ -51,32 +58,19 @@ export class CrearComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    if ( this.personaje.raza) {
-      for(let raza of this.service.razas) {
-        if ( raza.name == this.personaje.raza) {
-          this.raza = raza;
-        }
-      }
-    }
   }
 
   subracesActivator(evento) {
-    for(let raza of this.razas) {
-      if ( raza.name == evento.detail.value) {
-        this.raza = raza;
-      }
+    this.raza = this.service.razas[evento.detail.value];
+    if ( this.raza.subraces) {
+      this.keySubrazas = Object.keys(this.raza.subraces);
     }
     delete this.personaje.subraza;
     // console.log(this.personaje)
     
   }
   subraceTrigger(evento) {
-
-    for( let subraza of this.subrazas) {
-      if ( subraza.name == evento.detail.value) {
-        this.subraza = subraza;
-      }
-    }
+    this.subraza = this.raza.subraces[evento.detail.value];
 
   }
   setStats() {
@@ -120,6 +114,7 @@ export class CrearComponent implements AfterContentInit {
         "personaje": this.personaje,
         'titulo': titulo,
         'stats': this.status,
+        'skillList': this.service.skillList,
 
       }
 
@@ -131,12 +126,8 @@ export class CrearComponent implements AfterContentInit {
     const popover = await this.popoverCtrl.create({
       component: PopoverTemplateComponent,
       componentProps:{
-        'stats': this.personaje.stats,
-        'raza': this.raza,
+        'personaje': this.personaje,
         'statsPopover': bool,
-        'savings': this.personaje.savings,
-        'prof': this.personaje.proficiencia,
-        'clase': this.personaje.clase,
       },
       translucent: true,
     });

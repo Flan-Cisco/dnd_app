@@ -2,8 +2,8 @@
   <div  *ngFor="let atributo of stats; let ind=index">
     <div class="celda">
       <ion-label class="atributo">{{atributo}}
-        <p *ngIf="atributo>=10">(+{{modificador(atributo)}})</p>
-        <p *ngIf="atributo<10">(-{{modificador(atributo)}})</p>
+        <p [style.color] = "modificador(atributo) < 0 ? '#ff4961':'#545454'">{{modificador(atributo) | signoPipe}}</p>
+        <!-- <p *ngIf="atributo<10">(-{{modificador(atributo)}})</p> -->
       </ion-label>
       <ion-select class="atributo-stat" [value]="atributos.indexOf(posicionStats[ind])" placeholder="Asignar atributo" interface="action-sheet" (ionChange)="agregarAtributo($event, ind)">
         <ion-select-option *ngFor="let stat of atributos; let i=index" [value]="i">{{stat}}</ion-select-option>

@@ -1,347 +1,323 @@
 {
-    "clase": [
-    {
-        "nombre": "Barbarian",
-        "savings": ["str","con"],
-        "skills": ["Animal Handling", "Athletics","Intimidation","Nature","Perception","Survival"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Bard",
-        "savings": ["dex","cha"],
-        "skills": "any",
-        "nSkills": 3
-    },
-    {
-        "nombre": "Cleric",
-        "savings": ["wis","cha"],
-        "skills": ["History","Insight","Medicine","Persuasion","Religion"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Druid",
-        "savings": ["int","wis"],
-        "skills": ["Arcana","Animal Handling","Insight","Medicine","Nature","Perception","Religion","Survival"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Fighter",
-        "savings": ["str","con"],
-        "skills": ["Acrobatics","Animal Handling","Athletics","History","Insight","Intimidation","Perception","Survival"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Monk",
-        "savings": ["dex","str"],
-        "skills": ["Acrobatics","Athletics","History","Insight","Religion","Stealth"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Paladin",
-        "savings": ["wis","cha"],
-        "skills": ["Athletics","Insight","Intimidation","Medicine","Persuasion","Religion"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Ranger",
-        "savings": ["str","dex"],
-        "skills": ["Animal Handling","Athletics","Insight","Investigation","Nature","Perception","Stealth","Survival"],
-        "nSkills": 3
-    },
-    {
-        "nombre": "Rogue",
-        "savings": ["dex","int"],
-        "skills": ["Acrobatics","Athletics","Deception","Insight","Intimidation","Investigation","Perception","Performance","Persuasion","Sleight of hand","Stealth"],
-        "nSkills": 4
-    },
-    {
-        "nombre": "Sorcerer",
-        "savings": ["con","cha"],
-        "skills": ["Arcana","Deception","Insight","Intimidation","Persuasion","Religion"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Warlock",
-        "savings": ["wis","cha"],
-        "skills": ["Arcana","Deception","History","Intimidation","Investigation","Nature","Religion"],
-        "nSkills": 2
-    },
-    {
-        "nombre": "Wizard",
-        "savings": ["int","wis"],
-        "skills": ["Arcana","History","Insight","Investigation","Medicine","Religion"],
-        "nSkills": 2
-    }],
-    "skills": [
-        
-        {
-            "atributo": "Str",
-            "skill": ["Athletics"]
+    "clases": {
+        "Barbarian": {
+            "savings": ["str","con"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Int": ["Nature"],
+                "Wis": ["Animal Handling","Perception","Survival"],
+                "Cha": ["Intimidation"]
+            },
+            "nSkills": 2
         },
-        {
-            "atributo": "Dex",
-            "skill": ["Acrobatics","Sleight of hand","Stealth"]
+        "Bard":{
+            "savings": ["dex","cha"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Dex": ["Acrobatics","Sleight of hand","Stealth"],
+                "Int": ["Arcana","History","Investigation","Nature","Religion"],
+                "Wis": ["Animal Handling","Insight","Medicine","Perception","Survival"],
+                "Cha": ["Deception","Intimidation","Performance","Persuasion"]  
+            },
+            "nSkills": 3
         },
-        {
-            "atributo": "Int",
-            "skill": ["Arcana","History","Investigation","Nature","Religion"]
+        "Cleric": {
+            "savings": ["wis","cha"],
+            "skills": {
+                "Int": ["History","Religion"],
+                "Wis": ["Insight","Medicine"],
+                "Cha": ["Persuasion"]
+            },
+            "nSkills": 2
         },
-        {
-            "atributo": "Wis",
-            "skill": ["Animal Handling","Insight","Medicine","Perception","Survival"]
+        "Druid": {
+            "savings": ["int","wis"],
+            "skills": {
+                "Int": ["Arcana","Nature","Religion"],
+                "Wis": ["Animal Handling","Insight","Medicine","Perception","Survival"]
+            },
+            "nSkills": 2
         },
-        {
-            "atributo": "Cha",
-            "skill": ["Deception","Intimidation","Performance","Persuasion"]
+        "Fighter": {
+            "savings": ["str","con"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Dex": ["Acrobatics"],
+                "Int": ["History"],
+                "Wis": ["Animal Handling","Insight","Perception","Survival"],
+                "Cha": ["Intimidation"]
+            },
+            "nSkills": 2
+        },
+        "Monk": {
+            "savings": ["dex","str"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Dex": ["Acrobatics","Stealth"],
+                "Int": ["History","Religion"],
+                "Wis": ["Insight"]
+            },
+            "nSkills": 2
+        },
+        "Paladin": {
+            "savings": ["wis","cha"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Int": ["Religion"],
+                "Wis": ["Insight","Medicine"],
+                "Cha": ["Intimidation","Persuasion"]
+            },
+            "nSkills": 2
+        },
+        "Ranger": {
+            "savings": ["str","dex"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Dex": ["Stealth"],
+                "Int": ["Investigation","Nature"],
+                "Wis": ["Animal Handling","Insight","Perception","Survival"]
+            },
+            "nSkills": 3
+        },
+        "Rogue": {
+            "savings": ["dex","int"],
+            "skills": {
+                "Str": ["Athletics"],
+                "Dex": ["Acrobatics","Sleight of hand","Stealth"],
+                "Int": ["Investigation"],
+                "Wis": ["Insight","Perception"],
+                "Cha": ["Deception","Intimidation","Performance","Persuasion"]
+            },
+            "nSkills": 4
+        },
+        "Sorcerer": {
+            "savings": ["con","cha"],
+            "skills": {
+                "Int": ["Arcana","Religion"],
+                "Wis": ["Insight"],
+                "Cha": ["Deception","Intimidation","Persuasion"]
+            },
+            "nSkills": 2
+        },
+        "Warlock": {
+            "savings": ["wis","cha"],
+            "skills": {
+                "Int": ["Arcana","History","Investigation","Nature","Religion"],
+                "Cha": ["Deception","Intimidation"]
+            },
+            "nSkills": 2
+        },
+        "Wizard": {
+            "savings": ["int","wis"],
+            "skills": {
+                "Int": ["Arcana","History","Investigation","Religion"],
+                "Wis": ["Insight","Medicine"]
+            },
+            "nSkills": 2
         }
-    
-    ],
-    "backgrounds":[
-        {
-            "nombre": "Acolyte",
+    },
+    "skillList": {
+        "Str": ["Athletics"],
+        "Dex": ["Acrobatics","Sleight of hand","Stealth"],
+        "Int": ["Arcana","History","Investigation","Nature","Religion"],
+        "Wis": ["Animal Handling","Insight","Medicine","Perception","Survival"],
+        "Cha": ["Deception","Intimidation","Performance","Persuasion"]  
+    },
+    "backgrounds":{
+        "Acolyte": {
             "skills": ["Insight","Religion"],
             "languages": 2
 
         },
-        {
-            "nombre": "Charlatan",
+        "Charlatan": {
             "skills": ["Deception","Sleight of hand"],
             "Tools": ["Disguise kit","Forgery kit"]
 
         },
-        {
-            "nombre": "Criminal",
+        "Criminal":{
             "skills": ["Deception","Stealth"],
             "Tools": ["Gaming set","Thieves' tools"] 
 
         },
-        {
-            "nombre": "Entertainer",
+        "Entertainer":{
             "skills": ["Acrobatics","Performance"],
             "Tools": ["Disguise kit","Musical Instrument"] 
 
         },
-        {
-            "nombre": "Folk Hero",
+        "Folk Hero": {
             "skills": ["Animal Handling","Survival"],
             "Tools": ["Artisan's tools","Vehicles"] 
 
         },
-        {
-            "nombre": "Guild Artisan",
+        "Guild Artisan": {
             "skills": ["Insight","Persuasion"],
             "languages": 1,
             "Tools": ["Artisan's tools"] 
 
         },
-        {
-            "nombre": "Hermit",
+        "Hermit": {
             "skills": ["Medicine","Religion"],
             "languages": 1,
             "Tools": ["Herbalism kit"]
 
         },
-        {
-            "nombre": "Noble",
+        "Noble": {
             "skills": ["History","Persuasion"],
             "languages": 1,
             "Tools": ["Gaming set"]
 
         },
-        {
-            "nombre": "Outlander",
+        "Outlander": {
             "skills": ["Athletics","Survival"],
             "languages": 1,
             "Tools": ["Musical Instrument"]
 
         },
-        {
-            "nombre": "Sage",
+        "Sage": {
             "skills": ["Arcana","History"],
             "languages": 2
 
         },
-        {
-            "nombre": "Sailor",
+        "Sailor": {
             "skills": ["Athletics","Perception"],
             "Tools": ["Navigator's tools","Vehicles"] 
 
         },
-        {
-            "nombre": "Soldier",
+        "Soldier": {
             "skills": ["Athletics","Intimidation"],
             "Tools": ["Gaming set","Vehicles"] 
 
         },
-        {
-            "nombre": "Urchin",
+        "Urchin": {
             "skills": ["Sleight of hand","Stealth"],
             "Tools": ["Disguise kit","Thieves' tools"] 
 
         }
-    ],
-    "skillList": [
-        "Acrobatics",
-        "Animal Handling",
-        "Arcana",
-        "Athletics",
-        "Deception",
-        "History",
-        "Insight",
-        "Intimidation",
-        "Investigation",
-        "Medicine",
-        "Nature",
-        "Perception",
-        "Performance",
-        "Persuasion",
-        "Religion",
-        "Sleight of hand",
-        "Stealth",
-        "Survival"
-    ],
-    "languages": [
-        {
-            "common": ["Common","Dwarvish","Elvish","Giant","Gnomish","Goblin","Halfling","Orc"],
-            "exotic": ["Abyssal","Celestial","Draconic","Deep Speech","Infernal","Sylvan","Undercommon"]
-        }
-    ],
-    "races": [
-        {
-            "name": "Dwarf",
+    },
+    "languages": {
+        "common": ["Common","Dwarvish","Elvish","Giant","Gnomish","Goblin","Halfling","Orc"],
+        "exotic": ["Abyssal","Celestial","Draconic","Deep Speech","Infernal","Sylvan","Undercommon"]
+    },
+    "races": {
+
+        "Dwarf": {
             "stats": {
-                "con": [2]
+                "con": 2
             },
             "languages": ["Common","Dwarvish"],
-            "subraces": ["Mountain Dwarf","Hill Dwarf"]
+            "subraces": {
+                "Hill Dwarf": {
+                    "stats": {
+                        "wis": 1
+                    }
+                },
+                "Mountain Dwarf": {
+                    "stats": {
+                        "str": 2
+                    }
+                }
+            }
         },
-        {
-            "name": "Elf",
+        "Elf": {
             "stats": {
-                "dex": [2]
+                "dex": 2
             },
             "languages": ["Common","Elvish"],
-            "subraces": ["High Elf","Wood Elf","Dark Elf"]
+            "subraces": {
+                "High Elf": {
+                    "stats": {
+                        "int": 1
+                    },
+                    "language": 1
+                },
+                "Wood Elf": {
+                    "stats": {
+                        "wis": 1
+                    }
+                },
+                "Dark Elf": {
+                    "stats": {
+                        "cha": 1
+                    }
+                }
+            }
         },
-        {
-            "name": "Halfling",
+        "Halfling": {
             "stats": {
-                "dex": [2]
+                "dex": 2
             },
             "languages": ["Common","Halfling"],
-            "subraces": ["Lightfoot","Stout"]
+            "subraces": {
+                "Lightfoot": {
+                    "stats": {
+                        "cha": 1
+                    }
+                },
+                "Stout": {
+                    "stats": {
+                        "con": 1
+                    }
+                }
+            }
         },
-        {
-            "name": "Human",
+        "Human": {
             "stats": {
-                "all": [1]
+                "all": 1
             },
             "languages": ["Common","Extra"]
         },
-        {
-            "name": "Human (variant)",
+        "Human (variant)": {
             "stats": {
                 "any": [1,1]
                 
             },
             "languages": ["Common","Extra"]
         },
-        {
-            "name": "Dragonborn",
+        "Dragonborn": {
             "stats": {
-                "str": [2],
-                "cha": [1]
+                "str": 2,
+                "cha": 1
             },
             "languages": ["Common","Draconic"]
         },
-        {
-            "name": "Gnome",
+        "Gnome": {
             "stats": {
-                "int": [2]
+                "int": 2
             },
             "languages": ["Common","Gnomish"],
-            "subraces": ["Forest Gnome","Rock Gnome"]
+            "subraces": {
+                "Forest Gnome": {
+                    "stats":{
+                        "dex": 1
+                    }
+                },
+                "Rock Gnome": {
+                    "stats": {
+                        "con": 1
+                    }
+                }
+            }
         },
-        {
-            "name": "Half Elf",
+        "Half Elf": {
             "stats": {
-                "cha": [2],
+                "cha": 2,
                 "any": [1,1]
             },
             "languages": ["Common","Elvish","Extra"]
         },
-        {
-            "name": "Half Orc",
+        "Half Orc": {
             "stats": {
-                "str": [2],
-                "con": [1]
+                "str": 2,
+                "con": 1
             },
             "languages": ["Common","Orc"]
         },
-        {
-            "name": "Tiefling",
+        "Tiefling": {
             "stats": {
-                "int": [1],
-                "cha": [2]
+                "int": 1,
+                "cha": 2
             },
             "languages": ["Common","Infernal"]
         }
-    ],
-    "subraces": [
-        {
-            "name": "Hill Dwarf",
-            "stats": {
-                "wis": 1
-            }
-        },
-        {
-            "name": "Mountain Dwarf",
-            "stats": {
-                "str": 2
-            }
-        },
-        {
-            "name":"High Elf",
-            "stats": {
-                "int": 1
-            },
-            "language": 1
-        },
-        {
-            "name": "Wood Elf",
-            "stats": {
-                "wis": 1
-            }
-        },
-        {
-            "name": "Dark Elf",
-            "stats": {
-                "cha": 1
-            }
-        },
-        {
-            "name": "Lightfoot",
-            "stats": {
-                "cha": 1
-            }
-        },
-        {
-            "name": "Stout",
-            "stats": {
-                "con": 1
-            }
-        },
-        {
-            "name":"Forest Gnome",
-            "stats":{
-                "dex": 1
-            }
-        },
-        {
-            "name": "Rock Gnome",
-            "stats": {
-                "con": 1
-            }
-        }
-    ]
+    }
 }

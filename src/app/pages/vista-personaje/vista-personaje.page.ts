@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnChanges, SimpleChanges, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Personaje } from 'src/app/models/personaje.model';
@@ -10,22 +10,13 @@ import { ServService } from 'src/app/services/serv.service';
   templateUrl: './vista-personaje.page.html',
   styleUrls: ['./vista-personaje.page.scss'],
 })
-export class VistaPersonajePage implements OnInit {
+export class VistaPersonajePage implements OnChanges {
 
   personaje: Personaje;
-  clases: any[];
-  backgrounds: any[];
-  razas: any[];
-  subrazas: any[];
 
   constructor(private service: ServService, private serviceDB: CargaDBService, private route: ActivatedRoute, private compResolver: ComponentFactoryResolver, private viewconref: ViewContainerRef) {
     
     this.personaje = this.service.obtenerPersonaje(this.route.snapshot.paramMap.get('id'));
-
-    this.clases = this.service.clases;
-    this.backgrounds = this.service.backgrounds;
-    this.razas = this.service.razas;
-    this.subrazas = this.service.subrazas;
     // new Promise ((resolve, reject) => {
     //   this.serviceDB.backgrounds.subscribe(resp => {
     //     if ( resp ) {
@@ -54,7 +45,7 @@ export class VistaPersonajePage implements OnInit {
     // })
   }
 
-  ngOnInit() {
+  ngOnChanges() {
   }
 
   // loadComponent() {

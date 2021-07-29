@@ -8,11 +8,8 @@ import { Personaje } from '../models/personaje.model';
 export class ServService {
   
   personajes: Personaje[] = [];
-  clases: Clase[];
-  skills: [{
-    atributo: string;
-    skill: string[];
-  }]
+  clases: any = {};
+  skills: any;
   backgrounds: [{
     nombre: string,
     skills: string[],
@@ -22,24 +19,41 @@ export class ServService {
   skillList: string[];
   languages = {};
   razas: any;
-  subrazas: any;
 
-  
+  data: any;
 
 
   constructor() {
-    fetch("/assets/clases.json")
-      .then(resp => resp.text())
-      .then(text => {
-        this.clases = (JSON.parse(text).clase)
-        this.skills = (JSON.parse(text).skills)
-        this.backgrounds = (JSON.parse(text).backgrounds)
-        this.skillList = (JSON.parse(text).skillList)
-        this.languages = (JSON.parse(text).languages)
-        this.razas = (JSON.parse(text).races)
-        this.subrazas = (JSON.parse(text).subraces)
-      });
+    this.fetchData("/assets/clases.json")
+    // .then(text => {
+    //   this.clases = (JSON.parse(text).clases)
+    //   this.skills = (JSON.parse(text).skills)
+    //   this.backgrounds = (JSON.parse(text).backgrounds)
+    //   this.skillList = (JSON.parse(text).skillList)
+    //   this.languages = (JSON.parse(text).languages)
+    //   this.razas = (JSON.parse(text).races)
+    //   this.subrazas = (JSON.parse(text).subraces)
+    // });
+    // fetch("/assets/clases.json")
+    //   .then(resp => resp.text())
     this.cargarStorage();
+  }
+
+  async fetchData(
+    request: RequestInfo
+  ): Promise<any>{
+    const resp = await fetch(request);
+    const body = await resp.text()
+    .then(text => {
+      this.clases = (JSON.parse(text).clases)
+      this.skills = (JSON.parse(text).skills)
+      this.backgrounds = (JSON.parse(text).backgrounds)
+      this.skillList = (JSON.parse(text).skillList)
+      this.languages = (JSON.parse(text).languages)
+      this.razas = (JSON.parse(text).races)
+    })
+    
+
   }
 
   crearPersonaje ( data ) {

@@ -97,7 +97,7 @@ export class StatsComponent implements OnInit {
     
   }
   modificador(atrib: number) {
-    return Math.abs(Math.floor((atrib-10)/2));
+    return Math.floor((atrib-10)/2);
   }
 
   onClick() {

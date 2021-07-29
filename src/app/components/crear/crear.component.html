@@ -10,23 +10,23 @@
     <div class="celda">
       <span class="row1-col1">Class:</span>
       <ion-select class="row2-col1" placeholder="Seleccionar Clase" [(ngModel)]="personaje.clase">
-        <ion-select-option *ngFor="let clase of clases">{{clase.nombre}}</ion-select-option>
+        <ion-select-option *ngFor="let clase of keyClases">{{clase}}</ion-select-option>
         <!-- <ion-select-option *ngFor="let clase of serviceDB.clases | async">{{clase.nombre}}</ion-select-option> -->
       </ion-select>
       <span class="row1-col2">Background:</span>
       <ion-select class="row2-col2" placeholder="Background" [(ngModel)]="personaje.background">
-        <ion-select-option *ngFor="let background of backgrounds">{{background.nombre}}</ion-select-option>
+        <ion-select-option *ngFor="let background of keyBackgrounds">{{background}}</ion-select-option>
         <!-- <ion-select-option *ngFor="let background of serviceDB.backgrounds | async">{{background.nombre}}</ion-select-option> -->
       </ion-select>
     </div>
     <div class="celda">
       <span class="row1-col1">Race:</span>
       <ion-select class="row2-col1" placeholder="Seleccionar Raza" [(ngModel)]="personaje.raza" (ionChange)="subracesActivator($event)">
-        <ion-select-option value="{{race.name}}" *ngFor="let race of service.razas">{{race.name}}</ion-select-option>
+        <ion-select-option value="{{race}}" *ngFor="let race of keyRazas">{{race}}</ion-select-option>
       </ion-select>
       <span *ngIf="raza.subraces" class="row1-col2">Subrace:</span>
       <ion-select *ngIf="raza.subraces" class="row2-col2" placeholder="Seleccionar Subraza" [(ngModel)]="personaje.subraza" (ionChange) = "subraceTrigger($event)">
-        <ion-select-option value="{{subraza}}" *ngFor="let subraza of raza.subraces">{{subraza}}</ion-select-option>
+        <ion-select-option value="{{subraza}}" *ngFor="let subraza of keySubrazas">{{subraza}}</ion-select-option>
       </ion-select>
     </div>
     <div class="celda">
@@ -53,7 +53,7 @@
       asd
     </div> -->
     <div class="celda-doble">
-      <ion-item [disabled]="!personaje.clase || !personaje.stats" detail (click)="abrirModal('Skills')">
+      <ion-item [disabled]="!personaje.clase || !personaje.stats || !personaje.background" detail (click)="abrirModal('Skills')">
         <ion-label>
           <p>
             Skills

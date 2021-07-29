@@ -18,10 +18,6 @@ export class CargaDBService {
         .valueChanges();
     this.skills = firestore.collection("skills").valueChanges();
     this.backgrounds = firestore.collection("backgrounds").valueChanges();
-
-    this.backgrounds.subscribe(resp => {
-      console.log(resp)
-    })
     
   }
 }

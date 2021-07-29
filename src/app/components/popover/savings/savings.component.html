@@ -15,8 +15,8 @@
           </ion-col>
           <ion-col size="4">
             <ion-item>
-              <ion-label *ngIf="save + proffi[i] >=0">(+{{save + proffi[i]}})</ion-label>
-              <ion-label color="danger" *ngIf="save + proffi[i] < 0">({{save + proffi[i]}})</ion-label>
+              <ion-label [style.color] = "save + proffi[i] < 0 ? '#ff4961':'#fff'">{{save + proffi[i] | signoPipe}}</ion-label>
+              <!-- <ion-label color="danger" *ngIf="save + proffi[i] < 0">({{save + proffi[i]}})</ion-label> -->
 
             </ion-item>
           </ion-col>

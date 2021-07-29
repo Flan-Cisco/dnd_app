@@ -19,26 +19,17 @@ export class LanguagesComponent implements OnInit {
 
   constructor(private navParams: NavParams, public service: ServService, public modalController: ModalController,) {
     this.personaje = navParams.get("personaje")
-    console.log(this.personaje)
-    for (let back of this.service.backgrounds) {
-      if ( back.nombre == this.personaje.background){
-        if ( back.languages) {
-          this.nLanguages += back.languages;
-        }
-      }
+    if ( this.service.backgrounds[this.personaje.background].languages) {
+      this.nLanguages += this.service.backgrounds[this.personaje.background].languages
     }
     if (this.personaje.subraza){
-      for ( let subrace of this.service.subrazas) {
-        subrace.language;
-        if ( subrace.language) {
-          this.nLanguages += subrace.language;
+        if ( this.service.razas[this.personaje.raza].subraces[this.personaje.subraza].language) {
+          this.nLanguages += this.service.razas[this.personaje.raza].subraces[this.personaje.subraza].language;
         }
-      }
+      
     }
 
-    console.log("n",this.nLanguages)
-
-    let lenRaza =this.service.razas.find(resp => resp.name == this.personaje.raza).languages;
+    let lenRaza =this.service.razas[this.personaje.raza].languages;
 
     if ( lenRaza.find(resp => resp == "Extra")) {
       this.nLanguages += 1;
@@ -49,19 +40,17 @@ export class LanguagesComponent implements OnInit {
     this.lenguajesBase = lenRaza.length;
     
     
-    for ( let len of this.service.languages[0]["common"]) {
+    for ( let len of this.service.languages["common"]) {
       this.languagesCommon.push({lan: len, checked: false})
     }
-    for ( let len of this.service.languages[0]["exotic"]) {
+    for ( let len of this.service.languages["exotic"]) {
       this.languagesExotic.push({lan: len, checked: false})
     }
     
     if (!this.personaje.languagesCommon){
-      console.log(lenRaza);
       for ( let len of lenRaza) {
         for ( let lan of this.languagesCommon){
           if ( len == lan.lan) {
-            console.log("asdqwe")
             lan.checked = true;
           }
         }
@@ -121,7 +110,7 @@ export class LanguagesComponent implements OnInit {
     this.dismiss();
   }
   validarBack(lenguaje: string) {
-    let raza = this.service.razas.find(resp => resp.name == this.personaje.raza)
+    let raza = this.service.razas[this.personaje.raza];
     return raza.languages.find(resp => resp == lenguaje);
   }
 

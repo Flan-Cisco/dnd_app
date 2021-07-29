@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Attribute, Component, Input, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { Personaje } from 'src/app/models/personaje.model';
 import { ServService } from 'src/app/services/serv.service';
@@ -10,82 +10,66 @@ import { ServService } from 'src/app/services/serv.service';
 })
 export class SkillsComponent implements OnInit {
 
-  @Input() personaje: Personaje; 
-  skills: string[];
+  @Input() personaje: Personaje;
+  @Input() skillList: string[];
+
+  skillsDisponibles: any;
+  keySkills: string[];
+  skillsSeleccionadas: any = {};
   nSkills: number;
-  skillsSeleccionadas:any=[];
-  descSkills: any=[];
-  descBackground: any;
-  backSkills: number;
+  background: any;
 
   constructor(private modalController: ModalController, private service: ServService, navParams: NavParams) {
     this.personaje = navParams.get("personaje");
+    this.skillList = navParams.get("skillList");
 
-    if ( this.personaje.clase && this.service.clases) {
-      let desc = this.service.clases.find(resp => {
-        return resp.nombre == this.personaje.clase
-      });
-      console.log("background:", this.personaje.background);
-      this.descBackground = this.service.backgrounds.find(resp=> {
-        return resp.nombre == this.personaje.background
-      });
-      this.backSkills = this.descBackground.skills.length;
-      if (desc.skills == ["any"]) {
-        this.skills = service.skillList;
-      } else {
-        this.skills = desc.skills;
-      }
-      for( let skill of this.descBackground.skills) {
-        if ( !this.skills.find(resp => resp == skill)) {
-          this.skills.push(skill);
-        }
-      }
-      this.nSkills = desc.nSkills;
-      for (let skill of this.skills){
-        if (this.descBackground.skills.find(resp => resp == skill)) {
-          this.skillsSeleccionadas.push({nombre: skill, proficence:true})
-        } else {
-          this.skillsSeleccionadas.push({nombre: skill, proficence:false})
-        }
-        
-      }
-      this.descSkills = this.service.skills;
-      
-      
-      // console.log(this.skillsSeleccionadas)
-      // console.log(this.skills);
-      // console.log(this.nSkills);
-    }
-  }
+    this.skillsDisponibles = this.service.clases[this.personaje.clase].skills;
+    this.nSkills = this.service.clases[this.personaje.clase].nSkills;
+    this.keySkills = Object.keys(this.skillsDisponibles);
+    this.background = this.service.backgrounds[this.personaje.background];
 
-  validarMod(skill: string) {
-    for ( let atrib of this.descSkills) {
-      if ( atrib.skill.find(resp => {
-        return resp == skill
-      })) {
-        return Math.floor((this.personaje.stats[atrib.atributo.toLowerCase()]-10)/2);
+    if (this.personaje.skills) {
+      for ( let skill of Object.keys(this.personaje.skills)) {
+        this.skillsSeleccionadas[skill] = this.personaje.skills[skill];
       }
-    }
-  }
-  validarBack(skill: string) {
-    return this.descBackground.skills.find(resp => resp == skill);
-  }
-  sumarProf(prof: boolean) {
-    if (prof) {
-      return Number(this.personaje.proficiencia);
     } else {
-      return 0;
+      for ( let atributo of Object.keys(this.skillList)) {
+        for ( let skill of this.skillList[atributo]) {
+          this.skillsSeleccionadas[skill] = false;
+        }
+      }
+      for(let skill of this.service.backgrounds[this.personaje.background].skills) {
+        this.skillsSeleccionadas[skill] = true;
+      }
+    }
+
+
+  }
+
+  calcularMod(stat: number) {
+    return Math.floor((stat-10)/2);
+  }
+  agregarProficiencia(stat: number, prof: boolean) {
+    if ( prof ){
+      return Math.floor((stat-10)/2) + this.personaje.proficiencia;
+    } else {
+      return Math.floor((stat-10)/2);
     }
   }
+
+  validarBack(skill: string) {
+    return this.background.skills.find(resp => resp == skill);
+  }
+
 
   validar() {
     let cont = 0;
-    for (let skill of this.skillsSeleccionadas) {
-      if ( skill.proficence) {
+    for (let skill of Object.keys(this.skillsSeleccionadas)) {
+      if (this.skillsSeleccionadas[skill]) {
         cont += 1;
       }
     }
-    if ( cont == this.nSkills + this.backSkills) {
+    if ( cont == this.nSkills + this.background.skills.length) {
       return true;
     }
     return false;
@@ -97,6 +81,13 @@ export class SkillsComponent implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     })
+  }
+
+  guardar() {
+    this.personaje.skills = this.skillsSeleccionadas;
+
+    this.dismiss();
+    
   }
 
 }

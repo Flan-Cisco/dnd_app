@@ -15,11 +15,7 @@ export class Personaje {
     stats: Stats;
     proficiencia: number;
     hp: number;
-    skills: [{
-        skill: string;
-        prof: boolean;
-        expertice: boolean;
-    }];
+    skills: Object;
     savings: Saves;
     languagesCommon: string[];
     languagesExotic: string[];
