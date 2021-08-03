@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavParams, PopoverController } from '@ionic/angular';
 import { Personaje } from 'src/app/models/personaje.model';
+import { ServService } from 'src/app/services/serv.service';
 
 @Component({
   selector: 'stats-popover',
@@ -11,6 +12,7 @@ export class StatsPopoverComponent implements OnInit {
 
   @Input() personaje: Personaje;
 
+
   atributos: string[] = [
     "Str",
     "Dex",
@@ -20,8 +22,12 @@ export class StatsPopoverComponent implements OnInit {
     "Cha"
   ];
 
-  constructor(public popoverCtrl: PopoverController, navParams: NavParams) {
+  constructor(public popoverCtrl: PopoverController, private service:ServService, navParams: NavParams) {
     this.personaje = navParams.get("personaje");
+    console.log(this.personaje.stats);
+
+
+
     
   }
   

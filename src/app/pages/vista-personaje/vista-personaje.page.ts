@@ -1,8 +1,11 @@
-import { Component, ComponentFactoryResolver, OnChanges, SimpleChanges, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Personaje } from 'src/app/models/personaje.model';
-import { CargaDBService } from 'src/app/services/carga-db.service';
+import {
+  Component,
+  ComponentFactoryResolver,
+  OnChanges,
+  ViewContainerRef,
+} from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { LoadingComponent } from 'src/app/reutilizables/loading/loading.component';
 import { ServService } from 'src/app/services/serv.service';
 
 @Component({
@@ -12,11 +15,18 @@ import { ServService } from 'src/app/services/serv.service';
 })
 export class VistaPersonajePage implements OnChanges {
 
-  personaje: Personaje;
+  constructor(
+    private compResolver: ComponentFactoryResolver,
+    private viewconref: ViewContainerRef,
+    private service: ServService,
+    private modalControl: ModalController,
+  ) {
+    this.abrirModal();
+    setTimeout(() => {
+      this.dismiss();
+      this.loadComponent();
+    }, 3000);
 
-  constructor(private service: ServService, private serviceDB: CargaDBService, private route: ActivatedRoute, private compResolver: ComponentFactoryResolver, private viewconref: ViewContainerRef) {
-    
-    this.personaje = this.service.obtenerPersonaje(this.route.snapshot.paramMap.get('id'));
     // new Promise ((resolve, reject) => {
     //   this.serviceDB.backgrounds.subscribe(resp => {
     //     if ( resp ) {
@@ -45,15 +55,32 @@ export class VistaPersonajePage implements OnChanges {
     // })
   }
 
-  ngOnChanges() {
+  ngOnChanges() {}
+
+  loadComponent() {
+    import('../../components/crear/crear.component').then(
+      ({ CrearComponent }) => {
+        this.viewconref.clear();
+        const cmp = this.compResolver.resolveComponentFactory(CrearComponent);
+        const cmpref = this.viewconref.createComponent(cmp);
+      }
+    );
   }
 
-  // loadComponent() {
-  //   import ("../../components/crear/crear.component").then(({CrearComponent}) => {
-  //     this.viewconref.clear();
-  //     const cmp = this.compResolver.resolveComponentFactory(CrearComponent);
-  //     const cmpref = this.viewconref.createComponent(cmp);
-  //   })
-  // }
+  async abrirModal() {
+    const modal = await this.modalControl.create({
+      component:LoadingComponent,
+      backdropDismiss: false,
+      componentProps: {
 
+      }
+
+    });
+    return await modal.present();
+  }
+  dismiss() {
+    this.modalControl.dismiss({
+      'dismissed': true
+    })
+  }
 }

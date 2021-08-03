@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
+
+.fondo {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 300px 60px 220px;
+    justify-items: center;
+    padding: 15px;
+}
+
+.texto, .texto2 {
+    align-self: end;
+    font-family: 'Hahmlet', serif;
+    font-size: 1rem;
+    color: #959595;
+}
+.texto2 {
+    justify-self: end;
+    text-align: end;
+    font-weight:lighter;
+}
+.dotsImg {
+    align-self: center;
+    height: 120px;
+    width: 209px;
+}

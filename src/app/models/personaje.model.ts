@@ -13,6 +13,7 @@ export class Personaje {
     subraza: string;
     alineamiento: string;
     stats: Stats;
+    statsBase: Stats;
     proficiencia: number;
     hp: number;
     skills: Object;

@@ -1,0 +1,73 @@
+{
+    "backgrounds":{
+        "Acolyte": {
+            "skills": ["Insight","Religion"],
+            "languages": 2
+
+        },
+        "Charlatan": {
+            "skills": ["Deception","Sleight of hand"],
+            "Tools": ["Disguise kit","Forgery kit"]
+
+        },
+        "Criminal":{
+            "skills": ["Deception","Stealth"],
+            "Tools": ["Gaming set","Thieves' tools"] 
+
+        },
+        "Entertainer":{
+            "skills": ["Acrobatics","Performance"],
+            "Tools": ["Disguise kit","Musical Instrument"] 
+
+        },
+        "Folk Hero": {
+            "skills": ["Animal Handling","Survival"],
+            "Tools": ["Artisan's tools","Vehicles"] 
+
+        },
+        "Guild Artisan": {
+            "skills": ["Insight","Persuasion"],
+            "languages": 1,
+            "Tools": ["Artisan's tools"] 
+
+        },
+        "Hermit": {
+            "skills": ["Medicine","Religion"],
+            "languages": 1,
+            "Tools": ["Herbalism kit"]
+
+        },
+        "Noble": {
+            "skills": ["History","Persuasion"],
+            "languages": 1,
+            "Tools": ["Gaming set"]
+
+        },
+        "Outlander": {
+            "skills": ["Athletics","Survival"],
+            "languages": 1,
+            "Tools": ["Musical Instrument"]
+
+        },
+        "Sage": {
+            "skills": ["Arcana","History"],
+            "languages": 2
+
+        },
+        "Sailor": {
+            "skills": ["Athletics","Perception"],
+            "Tools": ["Navigator's tools","Vehicles"] 
+
+        },
+        "Soldier": {
+            "skills": ["Athletics","Intimidation"],
+            "Tools": ["Gaming set","Vehicles"] 
+
+        },
+        "Urchin": {
+            "skills": ["Sleight of hand","Stealth"],
+            "Tools": ["Disguise kit","Thieves' tools"] 
+
+        }
+    }
+}

@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { StatsPopoverComponent } from './popover/stats/stats.popover';
 import { SavingsComponent } from './popover/savings/savings.component';
 import { SkillsComponent } from './modal/skills/skills.component';
-import { SignoPipePipe } from '../pipes/signo-pipe.pipe';
+import { SignoPipePipe } from '../reutilizables/pipes/signo-pipe.pipe';
 import { CrearComponent } from './crear/crear.component';
 import { ModalTemplateComponent } from './modal/modal-template/modal-template.component';
 import { LanguagesComponent } from './modal/languages/languages.component';
 import { PopoverTemplateComponent } from './popover/popover-template/popover-template.component';
+import { LoadingComponent } from '../reutilizables/loading/loading.component';
 
 
 
@@ -28,6 +29,8 @@ import { PopoverTemplateComponent } from './popover/popover-template/popover-tem
     SignoPipePipe,
     
     CrearComponent,
+
+    LoadingComponent,
   ],
   exports: [
     ModalTemplateComponent,
@@ -40,6 +43,8 @@ import { PopoverTemplateComponent } from './popover/popover-template/popover-tem
     SavingsComponent,
 
     CrearComponent,
+
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

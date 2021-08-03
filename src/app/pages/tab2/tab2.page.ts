@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CargaDBService } from 'src/app/services/carga-db.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +7,7 @@ import { CargaDBService } from 'src/app/services/carga-db.service';
 })
 export class Tab2Page {
 
-  constructor(public cargaDB: CargaDBService) {
+  constructor() {
   }
   
 }

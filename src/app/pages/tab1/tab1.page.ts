@@ -2,8 +2,6 @@ import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController, AlertController, ToastController } from '@ionic/angular';
-import { Personaje } from 'src/app/models/personaje.model';
-import { CargaDBService } from 'src/app/services/carga-db.service';
 import { ServService } from 'src/app/services/serv.service';
 
 @Component({
@@ -16,7 +14,6 @@ export class Tab1Page {
   clases: any[];
   backgrounds: any[];
   constructor(public service: ServService,
-    private serviceDB: CargaDBService,
     private router: Router,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
@@ -104,11 +101,7 @@ export class Tab1Page {
           text: 'Editar',
           icon: 'build-outline',
           handler: () => {
-            this.serviceDB.backgrounds.subscribe(resp => {
-              if (resp) {
                 this.router.navigateByUrl(`/tabs/tab1/personaje/${id}`)
-              }
-            });
           }
         },
         {

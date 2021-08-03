@@ -10,10 +10,6 @@ const routes: Routes = [
     path: 'vista-personaje',
     loadChildren: () => import('./pages/vista-personaje/vista-personaje.module').then( m => m.VistaPersonajePageModule)
   },
-  // {
-  //   path: 'crear',
-  //   loadChildren: () => import('./pages/crear/crear.module').then( m => m.CrearPageModule)
-  // }
 ];
 @NgModule({
   imports: [

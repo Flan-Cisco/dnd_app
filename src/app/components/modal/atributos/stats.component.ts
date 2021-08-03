@@ -3,6 +3,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { Personaje } from 'src/app/models/personaje.model';
 import { Saves } from 'src/app/models/saves.model';
 import { Stats } from 'src/app/models/stats.model';
+import { ServService } from 'src/app/services/serv.service';
 
 @Component({
   selector: 'app-stats',
@@ -27,7 +28,8 @@ export class StatsComponent implements OnInit {
   statsAsignados: any = {}
   statsPersonaje: Stats = new Stats();
 
-  constructor(public modalController: ModalController, navParams: NavParams) {
+
+  constructor(public modalController: ModalController, navParams: NavParams, private service: ServService) {
     this.stats = navParams.get("stats");
     this.personaje = navParams.get("personaje");
 
@@ -38,13 +40,13 @@ export class StatsComponent implements OnInit {
       this.statsDisponibles[stat] = 0;
     }
 
-    if ( this.personaje.stats) {
+    if ( this.personaje.statsBase) {
       console.log("stats")
-      let keys = Object.keys(this.personaje.stats);
+      let keys = Object.keys(this.personaje.statsBase);
       for(let i=0; i< keys.length; i++) {
-        this.statsAsignados[i] = this.personaje.stats[keys[i]];
+        this.statsAsignados[i] = this.personaje.statsBase[keys[i]];
         // console.log(this.stats.indexOf(this.personaje.stats))
-        this.posicionStats[this.stats.indexOf(this.personaje.stats[keys[i]],this.index(this.personaje.stats[keys[i]]))] = keys[i].charAt(0).toUpperCase() + keys[i].substring(1,keys[i].length);
+        this.posicionStats[this.stats.indexOf(this.personaje.statsBase[keys[i]],this.index(this.personaje.statsBase[keys[i]]))] = keys[i].charAt(0).toUpperCase() + keys[i].substring(1,keys[i].length);
       }
       console.log("statsAsignado",this.statsAsignados);
       console.log("posicion",this.posicionStats);
@@ -72,7 +74,7 @@ export class StatsComponent implements OnInit {
     console.log("evento",evento.detail.value);
     let keys = Object.keys(this.posicionStats)
     for(let posicion of keys) {
-      this.statsPersonaje[this.posicionStats[posicion].toLowerCase()] = this.stats[posicion];
+      this.statsPersonaje[this.posicionStats[posicion].toLowerCase()] = Number(this.stats[posicion]);
     }
     
 
@@ -80,28 +82,14 @@ export class StatsComponent implements OnInit {
     console.log("posicion",this.posicionStats);
     console.log("stats",this.statsPersonaje);
     
-
-    // if ( this.posicionStats[index]) {
-    //   console.log("posicion ocupada por ",this.posicionStats[index]);
-    //   this.statsDisponibles[this.posicionStats[index]] -= 1;
-    // }
-    // console.log(this.posicionStats[index]);
-    // console.log(this.statsDisponibles);
-    // this.statsDisponibles[this.atributos[evento.detail.value]] += 1;
-    // console.log("posicionStats",this.statsDisponibles);
-    // this.posicionStats[index] = this.atributos[evento.detail.value];
-    
-    
-    // this.statsPersonaje[this.posicionStats[index].toLowerCase()] = atrib;
-    // console.log(this.posicionStats);
-    
   }
   modificador(atrib: number) {
     return Math.floor((atrib-10)/2);
   }
 
   onClick() {
-    this.personaje.stats = this.statsPersonaje;
+    this.personaje.statsBase = this.statsPersonaje;
+    this.service.bonoRaza(this.personaje)
     console.log(this.personaje);
     this.generarSavings();
     this.dismiss();

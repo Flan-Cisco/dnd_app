@@ -4,7 +4,7 @@
 }
 .celda-cabecera {
     display: grid;
-    grid-template-columns: 40px 1fr 1fr;
+    grid-template-columns: 50px 1fr 30px 1fr;
     justify-items: center;
 
 }
@@ -16,39 +16,43 @@
 }
 .celda {
     display:grid;
-    grid-template-columns: 40px 1fr 1fr;
+    grid-template-columns: 50px 1fr 30px 1fr;
     justify-items: center;
     border-bottom: 0.3px solid #212121;
 }
-.celda .bonos-raza {
-    display: grid;
-    grid-template-columns: 1fr 13px;
-    align-items: center;
-}
 .celda p{
-    margin:0 5px;
+    margin:0 20px;
     padding: 16px 0;
 }
-.bonos-raza, .celda-cabecera p {
+.celda-cabecera p {
     font-size: 14px;
-    color: #95959595
+    color: #95959595;
 }
 .celda ion-icon {
     margin-left:20px;
     align-self: center;
 }
-
-.atributo {
+.bonos-raza {
     align-self: center;
 }
-.atributo p {
+
+.icono {
+    justify-self: center;
+    align-self: center;
+}
+.icono ion-icon {
+    margin: 0;
+}
+.atributo {
+    grid-column: 4;
+    align-self: center;
+}
+.atributo p , .bonos-raza p{
     padding: 0;
     margin: 3px 0;
+    text-align: center;
 }
-.atributo p:nth-child(2) {
+.atributo p:nth-child(2) .bonos-raza p:nth-child(2) {
     font-size: 15px;
     color: #95959595;
-}
-.stat-bajo {
-    color: #ac3333;
 }

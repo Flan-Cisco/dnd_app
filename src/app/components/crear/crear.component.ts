@@ -2,7 +2,6 @@ import { Component, AfterContentInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController, NavParams, PopoverController } from '@ionic/angular';
 import { Personaje } from 'src/app/models/personaje.model';
-import { CargaDBService } from 'src/app/services/carga-db.service';
 import { ServService } from 'src/app/services/serv.service';
 import { ModalTemplateComponent } from '../modal/modal-template/modal-template.component';
 import { PopoverTemplateComponent } from '../popover/popover-template/popover-template.component';
@@ -25,7 +24,7 @@ export class CrearComponent implements AfterContentInit {
   keySubrazas: string[];
 
   
-  constructor(/*public serviceDB: CargaDBService,*/ public service: ServService,
+  constructor(public service: ServService,
     private route: ActivatedRoute,
     private modalController: ModalController,
     public popoverCtrl: PopoverController,
@@ -40,6 +39,7 @@ export class CrearComponent implements AfterContentInit {
       this.keyRazas = Object.keys(this.service.razas);
       if (this.personaje.raza) {
         this.raza = this.service.razas[this.personaje.raza];
+        this.service.bonoRaza(this.personaje, this.raza);
         if ( this.raza.subraces){
           this.keySubrazas = Object.keys(this.raza.subraces)
         }
@@ -67,10 +67,13 @@ export class CrearComponent implements AfterContentInit {
     }
     delete this.personaje.subraza;
     // console.log(this.personaje)
+
+    this.service.bonoRaza(this.personaje, this.raza);
     
   }
   subraceTrigger(evento) {
     this.subraza = this.raza.subraces[evento.detail.value];
+    this.service.bonoRaza(this.personaje, this.raza);
 
   }
   setStats() {
