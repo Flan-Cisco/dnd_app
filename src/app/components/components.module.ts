@@ -12,6 +12,7 @@ import { ModalTemplateComponent } from './modal/modal-template/modal-template.co
 import { LanguagesComponent } from './modal/languages/languages.component';
 import { PopoverTemplateComponent } from './popover/popover-template/popover-template.component';
 import { LoadingComponent } from '../reutilizables/loading/loading.component';
+import { AtributosRazaModal } from './modal/atributos-raza/atributos-raza.component';
 
 
 
@@ -21,6 +22,7 @@ import { LoadingComponent } from '../reutilizables/loading/loading.component';
     SkillsComponent,
     LanguagesComponent,
     StatsComponent,
+    AtributosRazaModal,
     
     PopoverTemplateComponent,
     StatsPopoverComponent,
@@ -37,6 +39,7 @@ import { LoadingComponent } from '../reutilizables/loading/loading.component';
     StatsComponent,
     LanguagesComponent,
     SkillsComponent,
+    AtributosRazaModal,
 
     PopoverTemplateComponent,
     StatsPopoverComponent,

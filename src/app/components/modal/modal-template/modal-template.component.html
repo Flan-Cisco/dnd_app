@@ -11,10 +11,13 @@
   <app-skills [personaje]="personaje" ></app-skills>
 </ion-content>
 
-<ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Atributos'">
+<ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Attributes'">
   <app-stats></app-stats>
 </ion-content>
 
 <ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Languages'">
   <app-languages [personaje]="personaje"></app-languages>
+</ion-content>
+<ion-content fullscreen class="ion-padding" *ngIf="titulo === 'Distribute race stats'">
+  <atributos-raza-modal></atributos-raza-modal>
 </ion-content>

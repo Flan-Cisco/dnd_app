@@ -1,71 +1,86 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-back-button defaultHref="/" slot="start"></ion-back-button>
-    <ion-title>{{ personaje.nombre }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding animate__backInRight">
+<ion-content class="animate__backInRight">
   <section class="grid">
-    <div class="celda">
-      <span class="row1-col1">Class:</span>
-      <ion-select
-        class="row2-col1"
-        placeholder="Seleccionar Clase"
-        [(ngModel)]="personaje.clase"
-      >
-        <ion-select-option *ngFor="let clase of keyClases">{{
-          clase
-        }}</ion-select-option>
-        <!-- <ion-select-option *ngFor="let clase of serviceDB.clases | async">{{clase.nombre}}</ion-select-option> -->
-      </ion-select>
-      <span class="row1-col2">Background:</span>
-      <ion-select
-        class="row2-col2"
-        placeholder="Background"
-        [(ngModel)]="personaje.background"
-      >
-        <ion-select-option *ngFor="let background of keyBackgrounds">{{
-          background
-        }}</ion-select-option>
-        <!-- <ion-select-option *ngFor="let background of serviceDB.backgrounds | async">{{background.nombre}}</ion-select-option> -->
-      </ion-select>
-    </div>
-    <div class="celda">
-      <span class="row1-col1">Race:</span>
-      <ion-select
-        class="row2-col1"
-        placeholder="Seleccionar Raza"
-        [(ngModel)]="personaje.raza"
-        (ionChange)="subracesActivator($event)"
-      >
-        <ion-select-option value="{{ race }}" *ngFor="let race of keyRazas">{{
-          race
-        }}</ion-select-option>
-      </ion-select>
-      <span *ngIf="raza.subraces" class="row1-col2">Subrace:</span>
-      <ion-select
-        *ngIf="raza.subraces"
-        class="row2-col2"
-        placeholder="Seleccionar Subraza"
-        [(ngModel)]="personaje.subraza"
-        (ionChange)="subraceTrigger($event)"
-      >
-        <ion-select-option
-          value="{{ subraza }}"
-          *ngFor="let subraza of keySubrazas"
-          >{{ subraza }}</ion-select-option
+    <div class="row">
+      <div class="casilla-select1">
+        <span>Class:</span>
+        <ion-select
+          placeholder="Clase"
+          [(ngModel)]="personaje.clase"
         >
-      </ion-select>
+          <ion-select-option *ngFor="let clase of keyClases">{{
+            clase
+          }}</ion-select-option>
+        </ion-select>
+      </div>
+      <div class="casilla-select2">
+        <span>Background:</span>
+        <ion-select
+          placeholder="Background"
+          [(ngModel)]="personaje.background"
+        >
+          <ion-select-option *ngFor="let background of keyBackgrounds">{{
+            background
+          }}</ion-select-option>
+        </ion-select>
+      </div>
     </div>
-    <div class="celda">
-      <span class="row1-col1">Level:</span>
-      <p class="row2-col1">{{ personaje.level }}</p>
-      <span class="row1-col2">Proficiency:</span>
-      <p class="row2-col2">+{{ personaje.proficiencia }}</p>
+    <div class="row">
+      <div class="casilla-select1">
+        <span>Race:</span>
+        <ion-select
+          placeholder="Raza"
+          [(ngModel)]="personaje.raza"
+          (ionChange)="subracesActivator($event)"
+        >
+          <ion-select-option value="{{ race }}" *ngFor="let race of keyRazas">{{
+            race
+          }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="casilla-select2" *ngIf="raza.subraces">
+        <span>Subrace:</span>
+        <ion-select
+          placeholder="Subraza"
+          [(ngModel)]="personaje.subraza"
+          (ionChange)="subraceTrigger($event)"
+        >
+          <ion-select-option
+            value="{{ subraza }}"
+            *ngFor="let subraza of keySubrazas"
+            >{{ subraza }}</ion-select-option
+          >
+        </ion-select>
+      </div>
+      <div>
+
+      </div>
+      <div
+        *ngIf="
+          personaje.raza == 'Half Elf' || personaje.raza == 'Human (variant)'
+        "
+        class="casilla-atributosRaza"
+      >
+        <ion-item detail (click)="abrirModal('Distribute race stats')">
+          <p>Race atributtes</p>
+        </ion-item>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="casilla-detalle1">
+        <span>Level:</span>
+        <p>{{ personaje.level }}</p>
+      </div>
+
+      <div class="casilla-detalle2">
+        <span>Proficiency:</span>
+        <p>+{{ personaje.proficiencia }}</p>
+      </div>
+    </div>
+
     <div>
-      <ion-item detail button="true" (click)="abrirModal('Atributos')">
+      <ion-item detail button="true" (click)="abrirModal('Attributes')">
         <ion-label>
           <p>Attributes:</p>
           <h2>
@@ -74,7 +89,7 @@
         </ion-label>
       </ion-item>
     </div>
-    <div class="celda-button" *ngIf="this.personaje.stats">
+    <div *ngIf="this.personaje.stats">
       <ion-button
         (click)="AbrirPopover(true)"
         expand="block"
@@ -85,10 +100,7 @@
         Stats
       </ion-button>
     </div>
-    <!-- <div class="celda" *ngIf="personaje.raza == 'Half Elf' || personaje.raza == 'Human (variant)' && personaje.stats">
-      asd
-    </div> -->
-    <div class="celda-doble">
+    <div class="row-doble">
       <ion-item
         [disabled]="
           !personaje.clase || !personaje.stats || !personaje.background
@@ -110,7 +122,7 @@
         </ion-label>
       </ion-item>
     </div>
-    <div class="celda-languages">
+    <div class="row-languages">
       <ion-item
         [disabled]="!personaje.background"
         detail

@@ -4,7 +4,9 @@ import {
   OnChanges,
   ViewContainerRef,
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { Personaje } from 'src/app/models/personaje.model';
 import { LoadingComponent } from 'src/app/reutilizables/loading/loading.component';
 import { ServService } from 'src/app/services/serv.service';
 
@@ -15,56 +17,25 @@ import { ServService } from 'src/app/services/serv.service';
 })
 export class VistaPersonajePage implements OnChanges {
 
+  loaded: boolean = false;
+  personaje: Personaje;
   constructor(
     private compResolver: ComponentFactoryResolver,
     private viewconref: ViewContainerRef,
     private service: ServService,
     private modalControl: ModalController,
+    private route: ActivatedRoute,
   ) {
+    this.personaje = this.service.obtenerPersonaje(this.route.snapshot.paramMap.get('id'));;
     this.abrirModal();
     setTimeout(() => {
       this.dismiss();
-      this.loadComponent();
+      this.loaded= true;
     }, 3000);
-
-    // new Promise ((resolve, reject) => {
-    //   this.serviceDB.backgrounds.subscribe(resp => {
-    //     if ( resp ) {
-    //       this.backgrounds = resp;
-    //       resolve("done");
-    //     } else {
-    //       reject("error");
-    //     }
-    //   })
-    // }).then (
-    //   (val) => {
-    //     console.log("listo")
-    //     this.loadComponent();
-    //   }
-    // )
-    // this.serviceDB.backgrounds.subscribe(resp => {
-    //   if (resp) {
-    //     this.backgrounds = resp;
-    //   }
-    // })
-    // this.serviceDB.clases.subscribe(resp => {
-    //   if (resp) {
-    //     this.clases = resp;
-    //     this.loadComponent();
-    //   }
-    // })
   }
 
-  ngOnChanges() {}
+  ngOnChanges() {
 
-  loadComponent() {
-    import('../../components/crear/crear.component').then(
-      ({ CrearComponent }) => {
-        this.viewconref.clear();
-        const cmp = this.compResolver.resolveComponentFactory(CrearComponent);
-        const cmpref = this.viewconref.createComponent(cmp);
-      }
-    );
   }
 
   async abrirModal() {
