@@ -13,6 +13,8 @@ import { LanguagesComponent } from './modal/languages/languages.component';
 import { PopoverTemplateComponent } from './popover/popover-template/popover-template.component';
 import { LoadingComponent } from '../reutilizables/loading/loading.component';
 import { AtributosRazaModal } from './modal/atributos-raza/atributos-raza.component';
+import { CasillaSelectComponent } from '../reutilizables/casilla-select/casilla-select.component';
+import { CasillaDetalleComponent } from '../reutilizables/casilla-detalle/casilla-detalle.component';
 
 
 
@@ -33,6 +35,8 @@ import { AtributosRazaModal } from './modal/atributos-raza/atributos-raza.compon
     CrearComponent,
 
     LoadingComponent,
+    CasillaSelectComponent,
+    CasillaDetalleComponent
   ],
   exports: [
     ModalTemplateComponent,
@@ -48,6 +52,8 @@ import { AtributosRazaModal } from './modal/atributos-raza/atributos-raza.compon
     CrearComponent,
 
     LoadingComponent,
+    CasillaSelectComponent,
+    CasillaDetalleComponent,
   ],
   imports: [
     CommonModule,

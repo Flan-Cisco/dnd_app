@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Personaje } from '../models/personaje.model';
+import { Saves } from '../models/saves.model';
 
 @Injectable({
   providedIn: 'root',
@@ -107,9 +108,9 @@ export class ServService {
           ObjTmp[key] = raza.stats[key];
         }
       }
-      if (personaje.subraza) {
-        for (let key of Object.keys(raza.subraces[personaje.subraza].stats)) {
-          ObjTmp[key] += raza.subraces[personaje.subraza].stats[key];
+      if (personaje.subrace) {
+        for (let key of Object.keys(raza.subraces[personaje.subrace].stats)) {
+          ObjTmp[key] += raza.subraces[personaje.subrace].stats[key];
         }
       }
       personaje.stats = ObjTmp;
@@ -127,5 +128,16 @@ export class ServService {
       }
       personaje.stats = ObjTmp;
     }
+    this.generarSavings(personaje);
+  }
+  generarSavings(personaje: Personaje) {
+    personaje.savings = new Saves(
+      Math.floor((personaje.stats.str-10)/2),
+      Math.floor((personaje.stats.dex-10)/2),
+      Math.floor((personaje.stats.con-10)/2),
+      Math.floor((personaje.stats.int-10)/2),
+      Math.floor((personaje.stats.wis-10)/2),
+      Math.floor((personaje.stats.cha-10)/2)
+    );
   }
 }

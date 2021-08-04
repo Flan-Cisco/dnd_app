@@ -1,0 +1,5 @@
+<div class="casilla-detalle">
+  <span>{{titulo}}:</span>
+  <p *ngIf="titulo == 'Level'">{{ personaje[titulo.toLowerCase()] }}</p>
+  <p *ngIf="titulo == 'Proficiency'">+{{ personaje[titulo.toLowerCase()] }}</p>
+</div>

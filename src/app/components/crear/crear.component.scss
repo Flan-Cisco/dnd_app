@@ -15,39 +15,9 @@
     display: grid;
     grid-template-columns: 1fr 20px 180px;
 }
-
-.casilla-select1, .casilla-select2 {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-    border-bottom: 0.3px solid #212121;
-    span {
-        margin-left: 15px;
-        margin-top: 15px;
-        color: #959595;
-    }
-    ion-select {
-        margin-left: 15px;
-    }
-}
-.casilla-select2 {
+.casilla-atributosRaza{
     grid-column: 3;
-}
-
-.casilla-detalle1, .casilla-detalle2 {
-    margin-left: 15px;
-    margin-top: 15px;
-    border-bottom: 0.3px solid #212121;
-
-    span {
-        color: #959595;
-    }
-    p {
-        margin-left: 15px;
-    }
-}
-.casilla-detalle2 {
-    grid-column: 3;
+    align-self: end;
 }
 .row-doble {
     display: grid;
@@ -57,14 +27,4 @@
     
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-.casilla-atributosRaza{
-    grid-column: 3;
-    align-self: end;
-    ion-item {
-        p {
-            color: #959595;
-        }
-    }
-    
 }

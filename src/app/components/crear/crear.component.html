@@ -1,82 +1,52 @@
 <ion-content class="animate__backInRight">
   <section class="grid">
     <div class="row">
-      <div class="casilla-select1">
-        <span>Class:</span>
-        <ion-select
-          placeholder="Clase"
-          [(ngModel)]="personaje.clase"
-        >
-          <ion-select-option *ngFor="let clase of keyClases">{{
-            clase
-          }}</ion-select-option>
-        </ion-select>
-      </div>
-      <div class="casilla-select2">
-        <span>Background:</span>
-        <ion-select
-          placeholder="Background"
-          [(ngModel)]="personaje.background"
-        >
-          <ion-select-option *ngFor="let background of keyBackgrounds">{{
-            background
-          }}</ion-select-option>
-        </ion-select>
-      </div>
+      <casilla-select
+        [personaje]="personaje"
+        titulo="Class"
+        [keys]="keyClases"
+      ></casilla-select>
+
+      <casilla-select
+        [personaje]="personaje"
+        titulo="Background"
+        [keys]="keyBackgrounds"
+        style="grid-column: 3"
+      ></casilla-select>
     </div>
+
     <div class="row">
-      <div class="casilla-select1">
-        <span>Race:</span>
-        <ion-select
-          placeholder="Raza"
-          [(ngModel)]="personaje.raza"
-          (ionChange)="subracesActivator($event)"
-        >
-          <ion-select-option value="{{ race }}" *ngFor="let race of keyRazas">{{
-            race
-          }}</ion-select-option>
-        </ion-select>
-      </div>
+      <casilla-select
+        [personaje]="personaje"
+        titulo="Race"
+        [keys]="keyRazas"
+      ></casilla-select>
 
-      <div class="casilla-select2" *ngIf="raza.subraces">
-        <span>Subrace:</span>
-        <ion-select
-          placeholder="Subraza"
-          [(ngModel)]="personaje.subraza"
-          (ionChange)="subraceTrigger($event)"
-        >
-          <ion-select-option
-            value="{{ subraza }}"
-            *ngFor="let subraza of keySubrazas"
-            >{{ subraza }}</ion-select-option
-          >
-        </ion-select>
-      </div>
-      <div>
+      <casilla-select
+        [personaje]="personaje"
+        titulo="Subrace"
+        [keys]="keySubrazas"
+        *ngIf="raza.subraces"
+        style="grid-column: 3"
+      ></casilla-select>
 
-      </div>
       <div
         *ngIf="
-          personaje.raza == 'Half Elf' || personaje.raza == 'Human (variant)'
+          personaje.race == 'Half Elf' || personaje.race == 'Human (variant)'
         "
         class="casilla-atributosRaza"
       >
         <ion-item detail (click)="abrirModal('Distribute race stats')">
-          <p>Race atributtes</p>
+          <ion-label><p>Race atributtes</p></ion-label>
         </ion-item>
       </div>
     </div>
 
     <div class="row">
-      <div class="casilla-detalle1">
-        <span>Level:</span>
-        <p>{{ personaje.level }}</p>
-      </div>
+      <casilla-detalle [personaje] = "personaje" titulo="Level"></casilla-detalle>
 
-      <div class="casilla-detalle2">
-        <span>Proficiency:</span>
-        <p>+{{ personaje.proficiencia }}</p>
-      </div>
+      <casilla-detalle [personaje] = "personaje" titulo = "Proficiency" style="grid-column: 3;"></casilla-detalle>
+
     </div>
 
     <div>
@@ -103,7 +73,7 @@
     <div class="row-doble">
       <ion-item
         [disabled]="
-          !personaje.clase || !personaje.stats || !personaje.background
+          !personaje.class || !personaje.stats || !personaje.background
         "
         detail
         (click)="abrirModal('Skills')"
@@ -113,7 +83,7 @@
         </ion-label>
       </ion-item>
       <ion-item
-        [disabled]="!personaje.savings || !personaje.clase || !personaje.raza"
+        [disabled]="!personaje.savings || !personaje.class || !personaje.race"
         detail
         (click)="AbrirPopover(false)"
       >
@@ -133,9 +103,19 @@
     </div>
   </section>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="guardar()" color="success">
       <ion-icon name="save"></ion-icon>
     </ion-fab-button>
+  </ion-fab> -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  color="success">
+      <ion-icon name="chevron-back"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="guardar()"><ion-icon name="save"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="lvlUp()"><ion-icon name="barbell"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
 </ion-content>

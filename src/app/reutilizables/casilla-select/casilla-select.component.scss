@@ -1,0 +1,14 @@
+.casilla-select {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    border-bottom: 0.3px solid #212121;
+    span {
+        margin-left: 15px;
+        margin-top: 15px;
+        color: #959595;
+    }
+    ion-select {
+        margin-left: 15px;
+    }
+}

@@ -29,14 +29,14 @@ export class SavingsComponent implements OnInit {
       this.saves.push(this.personaje.savings[a.toLowerCase()])
     }
 
-    this.descClase = this.service.clases[this.personaje.clase];
+    this.descClase = this.service.clases[this.personaje.class];
 
   }
 
   validarProf(atrib: string) {
     atrib = atrib.toLowerCase();
     if (this.descClase.savings.find(resp => resp == atrib)) {
-      this.proffi.push(this.personaje.proficiencia);
+      this.proffi.push(this.personaje.proficiency);
       return true;
     } else {
       this.proffi.push(0);

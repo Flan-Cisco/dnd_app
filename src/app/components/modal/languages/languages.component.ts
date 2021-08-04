@@ -22,14 +22,14 @@ export class LanguagesComponent implements OnInit {
     if ( this.service.backgrounds[this.personaje.background].languages) {
       this.nLanguages += this.service.backgrounds[this.personaje.background].languages
     }
-    if (this.personaje.subraza){
-        if ( this.service.razas[this.personaje.raza].subraces[this.personaje.subraza].language) {
-          this.nLanguages += this.service.razas[this.personaje.raza].subraces[this.personaje.subraza].language;
+    if (this.personaje.subrace){
+        if ( this.service.razas[this.personaje.race].subraces[this.personaje.subrace].language) {
+          this.nLanguages += this.service.razas[this.personaje.race].subraces[this.personaje.subrace].language;
         }
       
     }
 
-    let lenRaza =this.service.razas[this.personaje.raza].languages;
+    let lenRaza =this.service.razas[this.personaje.race].languages;
 
     if ( lenRaza.find(resp => resp == "Extra")) {
       this.nLanguages += 1;
@@ -110,7 +110,7 @@ export class LanguagesComponent implements OnInit {
     this.dismiss();
   }
   validarBack(lenguaje: string) {
-    let raza = this.service.razas[this.personaje.raza];
+    let raza = this.service.razas[this.personaje.race];
     return raza.languages.find(resp => resp == lenguaje);
   }
 

@@ -23,8 +23,8 @@ export class SkillsComponent implements OnInit {
     this.personaje = navParams.get("personaje");
     this.skillList = navParams.get("skillList");
 
-    this.skillsDisponibles = this.service.clases[this.personaje.clase].skills;
-    this.nSkills = this.service.clases[this.personaje.clase].nSkills;
+    this.skillsDisponibles = this.service.clases[this.personaje.class].skills;
+    this.nSkills = this.service.clases[this.personaje.class].nSkills;
     this.keySkills = Object.keys(this.skillsDisponibles);
     this.background = this.service.backgrounds[this.personaje.background];
 
@@ -51,7 +51,7 @@ export class SkillsComponent implements OnInit {
   }
   agregarProficiencia(stat: number, prof: boolean) {
     if ( prof ){
-      return Math.floor((stat-10)/2) + this.personaje.proficiencia;
+      return Math.floor((stat-10)/2) + this.personaje.proficiency;
     } else {
       return Math.floor((stat-10)/2);
     }

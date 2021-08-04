@@ -1,5 +1,4 @@
 import { Saves } from "./saves.model";
-import { Skills } from "./skills.model";
 import { Stats } from "./stats.model";
 
 
@@ -7,14 +6,14 @@ export class Personaje {
     nombre: string;
     id: number;
     level: number;
-    clase: string;
+    class: string;
     background: string;
-    raza: string;
-    subraza: string;
+    race: string;
+    subrace: string;
     alineamiento: string;
     stats: Stats;
     statsBase: Stats;
-    proficiencia: number;
+    proficiency: number;
     hp: number;
     skills: Object;
     savings: Saves;

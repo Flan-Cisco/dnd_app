@@ -1,0 +1,11 @@
+<div class="casilla-select">
+  <span>{{titulo}}:</span>
+  <ion-select
+    [placeholder]="titulo"
+    [(ngModel)]="personaje[titulo.toLowerCase()]"
+  >
+    <ion-select-option *ngFor="let key of keys">{{
+      key
+    }}</ion-select-option>
+  </ion-select>
+</div>

@@ -37,8 +37,8 @@ export class CrearComponent implements AfterContentInit {
       this.keyClases = Object.keys(this.service.clases);
       this.keyBackgrounds = Object.keys(this.service.backgrounds);
       this.keyRazas = Object.keys(this.service.razas);
-      if (this.personaje.raza) {
-        this.raza = this.service.razas[this.personaje.raza];
+      if (this.personaje.race) {
+        this.raza = this.service.razas[this.personaje.race];
         this.service.bonoRaza(this.personaje, this.raza);
         if ( this.raza.subraces){
           this.keySubrazas = Object.keys(this.raza.subraces)
@@ -46,7 +46,7 @@ export class CrearComponent implements AfterContentInit {
       }
       
       // console.log(this.status);
-      this.personaje.proficiencia = 1+Math.ceil(this.personaje.level/4);
+      this.personaje.proficiency = 1+Math.ceil(this.personaje.level/4);
       // console.log("prof", this.personaje.proficiencia);
 
       // if (this.personaje.raza) {
@@ -65,7 +65,7 @@ export class CrearComponent implements AfterContentInit {
     if ( this.raza.subraces) {
       this.keySubrazas = Object.keys(this.raza.subraces);
     }
-    delete this.personaje.subraza;
+    delete this.personaje.subrace;
     // console.log(this.personaje)
 
     this.service.bonoRaza(this.personaje, this.raza);
@@ -148,7 +148,7 @@ export class CrearComponent implements AfterContentInit {
   }
   validateSubrace() {
     for ( let raza of this.service.razas) {
-      if ( raza.name == this.personaje.raza) {
+      if ( raza.name == this.personaje.race) {
         if (raza.subraces) {
           return true;
         }

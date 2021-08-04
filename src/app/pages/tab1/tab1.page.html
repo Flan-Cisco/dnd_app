@@ -9,8 +9,8 @@
   <ion-list>
     <ion-item-sliding *ngFor="let personaje of service.personajes">
       <ion-item button="true" (click)="presentActionSheet(personaje.id)" detail>
-        <ion-avatar slot="start" *ngIf="personaje.clase">
-          <ion-img src="assets\avatar\{{personaje.clase}}.png"></ion-img>
+        <ion-avatar slot="start" *ngIf="personaje.class">
+          <ion-img src="assets\avatar\{{personaje.class}}.png"></ion-img>
         </ion-avatar>
         <ion-label>
           <h2>

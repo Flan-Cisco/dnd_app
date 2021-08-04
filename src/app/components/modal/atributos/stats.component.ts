@@ -91,7 +91,7 @@ export class StatsComponent implements OnInit {
     this.personaje.statsBase = this.statsPersonaje;
     this.service.bonoRaza(this.personaje)
     console.log(this.personaje);
-    this.generarSavings();
+    this.service.generarSavings(this.personaje);
     this.dismiss();
   }
   validar() {
@@ -107,18 +107,6 @@ export class StatsComponent implements OnInit {
     } else {
       return true;
     }
-  }
-
-  generarSavings() {
-    this.personaje.savings = new Saves(
-      Math.floor((this.personaje.stats.str-10)/2),
-      Math.floor((this.personaje.stats.dex-10)/2),
-      Math.floor((this.personaje.stats.con-10)/2),
-      Math.floor((this.personaje.stats.int-10)/2),
-      Math.floor((this.personaje.stats.wis-10)/2),
-      Math.floor((this.personaje.stats.cha-10)/2)
-    );
-    console.log(this.personaje);
   }
   
 
