@@ -7,10 +7,10 @@ import { NavParams } from '@ionic/angular';
   styleUrls: ['./popover-template.component.scss'],
 })
 export class PopoverTemplateComponent implements OnInit {
-  @Input() statsPopover: boolean;
+  @Input() tipoPopover: string;
 
   constructor(private navParams: NavParams) {
-    this.statsPopover = navParams.get("statsPopver")
+    this.tipoPopover = navParams.get("tipoPopover")
   }
 
   ngOnInit() {}

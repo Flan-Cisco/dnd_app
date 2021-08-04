@@ -61,7 +61,7 @@
     </div>
     <div *ngIf="this.personaje.stats">
       <ion-button
-        (click)="AbrirPopover(true)"
+        (click)="AbrirPopover('stats')"
         expand="block"
         fill="outline"
         shape="round"
@@ -85,7 +85,7 @@
       <ion-item
         [disabled]="!personaje.savings || !personaje.class || !personaje.race"
         detail
-        (click)="AbrirPopover(false)"
+        (click)="AbrirPopover('savings')"
       >
         <ion-label>
           <p>Saving Throws</p>
@@ -114,7 +114,7 @@
     </ion-fab-button>
     <ion-fab-list side="start">
       <ion-fab-button (click)="guardar()"><ion-icon name="save"></ion-icon></ion-fab-button>
-      <ion-fab-button (click)="lvlUp()"><ion-icon name="barbell"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="AbrirPopover('level')"><ion-icon name="barbell"></ion-icon></ion-fab-button>
       <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
     </ion-fab-list>
   </ion-fab>

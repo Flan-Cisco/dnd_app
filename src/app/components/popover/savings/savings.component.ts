@@ -44,6 +44,13 @@ export class SavingsComponent implements OnInit {
     }
   }
 
+  modificador(stat: number, atributo: string) {
+    if ( this.service.clases[this.personaje.class].savings.find(resp => resp == atributo.toLowerCase())) {
+      return stat + this.personaje.proficiency;
+    }
+    return stat;
+  }
+
   ngOnInit() {}
 
 }

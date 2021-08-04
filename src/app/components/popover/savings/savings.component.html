@@ -1,27 +1,22 @@
-<ion-content class="popover">
-  <ion-grid fixed>
-    <ion-list>
-      <ion-row *ngFor="let save of saves; let i=index">
-        <ion-col size="4">
-            <ion-item>
-              <ion-label>{{atributos[i]}}</ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col size="4">
-            <ion-item>
-              <ion-label *ngIf ="validarProf(atributos[i])">Prof</ion-label>
-
-            </ion-item>
-          </ion-col>
-          <ion-col size="4">
-            <ion-item>
-              <ion-label [style.color] = "save + proffi[i] < 0 ? '#ff4961':'#fff'">{{save + proffi[i] | signoPipe}}</ion-label>
-              <!-- <ion-label color="danger" *ngIf="save + proffi[i] < 0">({{save + proffi[i]}})</ion-label> -->
-
-            </ion-item>
-          </ion-col>
-      </ion-row>
-      
-    </ion-list>
-  </ion-grid>
-</ion-content>
+<div class="grid">
+  <div class="celda" *ngFor="let stat of saves; let i = index">
+    <p>{{ atributos[i] }}</p>
+    <p
+      *ngIf="modificador(stat, atributos[i]) != stat"
+      [style.color]="personaje.proficiency < 0 ? '#ff4961' : '#545454'"
+    >
+      {{ stat | signoPipe }}
+    </p>
+    <div class="icon" *ngIf="modificador(stat, atributos[i]) != stat">
+      <ion-icon name="arrow-forward-sharp"></ion-icon>
+    </div>
+    <p
+      style="grid-column: 4"
+      [style.color]="
+        modificador(stat, atributos[i]) < 0 ? '#ff4961' : '#545454'
+      "
+    >
+      {{ modificador(stat, atributos[i]) | signoPipe }}
+    </p>
+  </div>
+</div>

@@ -125,12 +125,12 @@ export class CrearComponent implements AfterContentInit {
     return await modal.present();
   }
 
-  async AbrirPopover(bool: boolean) {
+  async AbrirPopover(tipo: string) {
     const popover = await this.popoverCtrl.create({
       component: PopoverTemplateComponent,
       componentProps:{
         'personaje': this.personaje,
-        'statsPopover': bool,
+        'tipoPopover': tipo,
       },
       translucent: true,
     });

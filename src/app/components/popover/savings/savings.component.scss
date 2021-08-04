@@ -1,0 +1,16 @@
+.grid {
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    align-items: center;
+    margin: 0 15px;
+}
+
+.celda {
+    display: grid;
+    grid-template-columns: 80px 51px 38px 51px;
+    border-bottom: 0.3px solid #212121;
+}
+
+.icon {
+    align-self: center;
+}

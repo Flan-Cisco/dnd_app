@@ -1,7 +1,4 @@
-<ion-content *ngIf="statsPopover">
-  <stats-popover></stats-popover>
-</ion-content>
-
-<ion-content *ngIf="!statsPopover">
-  <savings-popover></savings-popover>
+<ion-content>
+  <stats-popover *ngIf="tipoPopover == 'stats'"></stats-popover>
+  <savings-popover *ngIf="tipoPopover == 'savings'"></savings-popover>
 </ion-content>
