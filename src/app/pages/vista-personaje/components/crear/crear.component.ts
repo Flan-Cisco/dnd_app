@@ -55,6 +55,7 @@ export class CrearComponent {
     }
     delete this.personaje.subrace;
     delete this.personaje.bonoAny;
+    delete this.personaje.languagesCommon;
     // console.log(this.personaje)
 
     this.service.bonoRaza(this.personaje, this.raza);
@@ -143,5 +144,8 @@ export class CrearComponent {
       return 35;
     }
     return velocidad;
+  }
+  calcularAC(personaje: Personaje) {
+    return 10 + Math.floor((personaje.stats.Dex-10)/2)
   }
 }

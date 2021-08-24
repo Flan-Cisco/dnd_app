@@ -1,0 +1,291 @@
+{
+    "armors": {
+        "Light Armors": {
+            "Padded": {
+                "AC": 11,
+                "stealth": "Disadvantage",
+                "cost": 5
+            },
+            "Leather": {
+                "AC": 11,
+                "cost": 10
+            },
+            "Studded Leather": {
+                "AC": 12,
+                "cost": 45
+            }
+        },
+        "Medium Armors": {
+            "Hide": {
+                "AC": 12,
+                "cost": 10
+            },
+            "Chain Shirt": {
+                "AC": 13,
+                "cost": 50
+            },
+            "Scale Mail": {
+                "AC": 14,
+                "cost": 50,
+                "stealth":"Disadvantage"
+            },
+            "Breastplate": {
+                "AC": 14,
+                "cost": 400
+            },
+            "Half Plate": {
+                "AC": 15,
+                "cost": 750,
+                "stealth":"Disadvantage"
+            }
+        },
+        "Heavy Armors": {
+            "Ring Mail": {
+                "AC": 14,
+                "cost": 30
+            },
+            "Chain Mail": {
+                "AC": 16,
+                "cost": 75,
+                "str": 13
+            },
+            "Splint": {
+                "AC": 17,
+                "cost": 200,
+                "str": 15
+            },
+            "Plate": {
+                "AC": 18,
+                "cost": 1500,
+                "str": 15
+            }
+        }
+
+    },
+    "weapons": {
+        "Simple Melee Weapons": {
+            "Club": {
+                "cost": 0.1,
+                "damage": "1d4",
+                "damageType": "Bludgeoning",
+                "properties": ["Light"]
+            },
+            "Dagger": {
+                "cost": 2,
+                "damage": "1d4",
+                "damageType": "Piercing",
+                "properties": ["Light","Finesse","Thrown (20/60)"]
+            },
+            "Greatclub": {
+                "cost": 0.2,
+                "damage": "1d8",
+                "damageType": "Bludgeoning",
+                "properties": ["Two-handed"]
+            },
+            "Handaxe": {
+                "cost": 5,
+                "damage": "1d6",
+                "damageType": "Slashing",
+                "properties": ["Light","Thrown (20/60)"]
+            },
+            "Javelin": {
+                "cost": 0.5,
+                "damage": "1d6",
+                "damageType": "Piercing",
+                "properties": ["Thrown (30/120)"]
+            },
+            "Light Hammer": {
+                "cost": 2,
+                "damage": "1d4",
+                "damageType": "Bludgeoning",
+                "properties": ["Light","Thrown (20/60)"]
+            },
+            "Mace": {
+                "cost": 5,
+                "damage": "1d6",
+                "damageType": "Bludgeoning"
+            },
+            "Quarterstaff": {
+                "cost": 0.2,
+                "damage": "1d6",
+                "damageType": "Bludgeoning",
+                "properties": ["Versatile (1d8)"]
+            },
+            "Sickle": {
+                "cost": 1,
+                "damage": "1d4",
+                "damageType": "Slashing",
+                "properties": ["Light"]
+            },
+            "Spear": {
+                "cost": 1,
+                "damage": "1d6",
+                "damageType": "Piercing",
+                "properties": ["Thrown (20/60)","Versatile (1d8)"]
+            }
+        },
+        "Simple Range Weapons": {
+            "Light Crossbow": {
+                "cost": 25,
+                "damage": "1d8",
+                "damageType": "Piercing",
+                "properties": ["Ammunition (80/320)", "Loading","Two-handed"]
+            },
+            "Dart": {
+                "cost": 5,
+                "damage": "1d4",
+                "damageType": "Piercing",
+                "properties": ["Finesse","Thrown (20/60)"]
+            },
+            "Shortbow": {
+                "cost": 25,
+                "damage": "1d6",
+                "damageType": "Piercing",
+                "properties": ["Ammunition (80/320)","Two-handed"]
+            },
+            "Sling": {
+                "cost": 0.1,
+                "damage": "1d4",
+                "damageType": "Bludgeoning",
+                "properties": ["Ammunition (30/120)"]
+            }
+        },
+        "Martial Melee Weapons": {
+            "Battleaxe": {
+                "cost": 10,
+                "damage": "1d8",
+                "damageType": "Slashing",
+                "properties": ["Versatile (1d10)"]
+            },
+            "Flail": {
+                "cost": 10,
+                "damage": "1d8",
+                "damageType":"Bludgeoning"
+            },
+            "Glaive": {
+                "cost": 20,
+                "damage": "1d10",
+                "damageType": "Slashing",
+                "properties": ["Heavy", "Two-handed"]
+            },
+            "Greataxe" : {
+                "cost": 30,
+                "damage": "1d12",
+                "damageType": "Slashing",
+                "properties": ["Heavy", "Two-handed"]
+            },
+            "Greatsword": {
+                "cost": 50,
+                "damage": "2d6",
+                "damageType": "Slashing",
+                "properties": ["Heavy", "Two-handed"]
+            },
+            "Halberd": {
+                "cost": 20,
+                "damage": "1d10",
+                "damageType": "Slashing",
+                "properties": ["Heavy", "Reach", "Two-handed"]
+            },
+            "Lance": {
+                "cost": 10,
+                "damage": "1d12",
+                "damageType": "Piercing",
+                "properties": ["Reach", "Special"]
+            },
+            "Longsword": {
+                "cost": 15,
+                "damage": "1d8",
+                "damageType": "Slashing",
+                "properties": ["Versatile (1d10)"]
+            },
+            "Maul": {
+                "cost":10,
+                "damage": "2d6",
+                "damageType": "Bludgeoning",
+                "properties": ["Heavy", "Two-handed"]
+            },
+            "Morningstar": {
+                "cost": 15,
+                "damage": "2d6",
+                "damageType": "Bludgeoning"
+            },
+            "Pike": {
+                "cost": 5,
+                "damage": "1d10",
+                "damageType": "Piercing",
+                "properties": ["Heavy", "Reach", "Two-handed"]
+            },
+            "Rapier" : {
+                "cost": 25,
+                "damage": "1d8",
+                "damageType": "Piercing",
+                "properties": ["Finesse"]
+            },
+            "Scimitar": {
+                "cost": 25,
+                "damage": "1d6",
+                "damageType": "Slashing",
+                "properties": ["Finesse", "Light"]
+            },
+            "Shortsword": {
+                "cost": 10,
+                "damage": "1d6",
+                "damageType": "Piercing",
+                "properties": ["Finesse", "Light"]
+            },
+            "Trident": {
+                "cost": 5,
+                "damage": "1d6",
+                "damageType": "Piercing",
+                "properties": ["Thrown (20/60)", "Versatile (1d8)"]
+            },
+            "War pick": {
+                "cost": 5,
+                "damage": "1d8",
+                "damageType": "Piercing"
+            },
+            "Warhammer": {
+                "cost": 15,
+                "damage": "1d8",
+                "damageType": "Bludgeoning",
+                "properties": ["Versatile (1d10)"]
+            },
+            "Whip": {
+                "cost": 2,
+                "damage": "1d4",
+                "damageType": "Slashing",
+                "properties": ["Finesse", "Reach"]
+            }
+        },
+        "Martial Ranged Weapons": {
+            "Blowgun": {
+                "cost": 10,
+                "damage": "1",
+                "damageType": "Piercing",
+                "properties": ["Ammunition (25/100)", "Loading"]
+            },
+            "Hand Crossbow": {
+                "cost": 75,
+                "damage": "1d6",
+                "damageType": "Piercing",
+                "properties": ["Ammunition (30/120)", "Light", "Loading"]
+            },
+            "Heavy Crossbow": {
+                "cost": 50,
+                "damage": "1d10",
+                "damageType": "Piercing",
+                "properties": ["Ammunition (100/400)", "Heavy", "Loading", "Two-handed"]
+            },
+            "Longbow": {
+                "cost": 50,
+                "damage": "1d10",
+                "damageType": "Piercing",
+                "properties": ["Ammunition (150/600)", "Heavy", "Two-handed"]
+            },
+            "Net": {
+                "cost": 1,
+                "properties": ["Special", "Thrown (5/15)"]
+            }
+        }
+    }
+}

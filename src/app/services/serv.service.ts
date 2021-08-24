@@ -26,6 +26,8 @@ export class ServService {
     exotic: string[];
   };
   razas: any;
+  armaduras: any;
+  armas: any;
 
   constructor(private router: Router) {
     this.cargarStorage();
@@ -48,11 +50,18 @@ export class ServService {
     const data = await resp.json();
     this.razas = data.races;
   }
+  async fetchEquipamiento() {
+    const resp = await fetch('assets/equipamiento.json');
+    const data = await resp.json();
+    this.armaduras = data.armors;
+    this.armas = data.weapons;
+  }
 
   fetchDatos() {
     this.fetchClases();
     this.fetchBacks();
     this.fetchRaces();
+    this.fetchEquipamiento();
   }
 
   crearPersonaje(data) {
