@@ -1,0 +1,30 @@
+
+
+
+.informacion {
+    display: grid;
+    
+    h2 {
+        font-size: 1rem;
+        margin: 5px 0;
+        
+    }
+    p {
+        font-size: 14px;
+        margin: 2px 0;
+        color: var(--ion-color-step-600, #666666);
+    }
+    .nivel {
+        margin-left: 5px;
+    }
+}
+@media (min-width: 370px) {
+    .tab1 {
+        
+        display: grid;
+        grid-template-columns: 50px auto 50px;
+        ion-list {
+            grid-column: 2;
+        }
+    }
+}

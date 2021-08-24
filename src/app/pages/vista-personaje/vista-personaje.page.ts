@@ -1,7 +1,7 @@
 import {
   Component,
   ComponentFactoryResolver,
-  OnChanges,
+  OnInit,
   ViewContainerRef,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,18 +15,15 @@ import { ServService } from 'src/app/services/serv.service';
   templateUrl: './vista-personaje.page.html',
   styleUrls: ['./vista-personaje.page.scss'],
 })
-export class VistaPersonajePage implements OnChanges {
+export class VistaPersonajePage implements OnInit {
 
-  loaded: boolean = false;
+  loaded = false;
   personaje: Personaje;
   constructor(
-    private compResolver: ComponentFactoryResolver,
-    private viewconref: ViewContainerRef,
     private service: ServService,
     private modalControl: ModalController,
     private route: ActivatedRoute,
   ) {
-    this.personaje = this.service.obtenerPersonaje(this.route.snapshot.paramMap.get('id'));;
     this.abrirModal();
     setTimeout(() => {
       this.dismiss();
@@ -34,7 +31,9 @@ export class VistaPersonajePage implements OnChanges {
     }, 3000);
   }
 
-  ngOnChanges() {
+  ngOnInit() {
+    this.personaje = this.service.obtenerPersonaje(this.route.snapshot.paramMap.get('id'));
+    this.service.fetchDatos();
 
   }
 
@@ -50,8 +49,6 @@ export class VistaPersonajePage implements OnChanges {
     return await modal.present();
   }
   dismiss() {
-    this.modalControl.dismiss({
-      'dismissed': true
-    })
+    this.modalControl.dismiss();
   }
 }

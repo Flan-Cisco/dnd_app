@@ -1,0 +1,39 @@
+<section class="lista">
+  <div class="celda" *ngFor="let stat of stats; let ind = index">
+    <ion-item>
+      <ion-label
+        >{{ stat }}
+        <p
+          [style.color]="
+            modificador(stat) < 0 ? 'rgba(255, 73, 97, 0.83)' : '#545454'
+          "
+        >
+          {{ modificador(stat) | signoPipe }}
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-select
+      class="atributo-stat"
+      [value]="atributosPosicion[ind]"
+      placeholder="Attribute"
+      interface="action-sheet"
+      (ionChange)="agregarAtributo($event, ind)"
+    >
+      <ion-select-option
+        *ngFor="let atributo of atributos; let i = index"
+        [value]="i"
+        >{{ atributo }}</ion-select-option
+      >
+    </ion-select>
+  </div>
+</section>
+
+<ion-button
+  [disabled]="validarDistribucion"
+  color="secondary"
+  expand="block"
+  (click)="onClick()"
+  class="animated__animated animate__slideInUp"
+>
+  <ion-icon name="save"></ion-icon>
+</ion-button>

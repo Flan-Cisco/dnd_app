@@ -6,6 +6,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { VistaPersonajePageRoutingModule } from './vista-personaje-routing.module';
 
+
+import { CrearComponent } from './components/crear/crear.component';
+
+
+import { ModalTemplateComponent } from '../../components/modal/modal-template/modal-template.component';
+import { PopoverTemplateComponent } from '../../components/popover/popover-template/popover-template.component';
+
 import { VistaPersonajePage } from './vista-personaje.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
@@ -16,7 +23,13 @@ import { ComponentsModule } from 'src/app/components/components.module';
     IonicModule,
     VistaPersonajePageRoutingModule,
     ComponentsModule,
+
   ],
-  declarations: [VistaPersonajePage]
+  declarations: [
+    VistaPersonajePage,
+    CrearComponent,
+    ModalTemplateComponent,
+    PopoverTemplateComponent,
+  ]
 })
 export class VistaPersonajePageModule {}

@@ -10,9 +10,8 @@ export class PopoverTemplateComponent implements OnInit {
   @Input() tipoPopover: string;
 
   constructor(private navParams: NavParams) {
-    this.tipoPopover = navParams.get("tipoPopover")
+    this.tipoPopover = navParams.get('tipoPopover');
   }
 
   ngOnInit() {}
-
 }

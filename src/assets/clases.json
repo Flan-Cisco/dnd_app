@@ -8,7 +8,8 @@
                 "Wis": ["Animal Handling","Perception","Survival"],
                 "Cha": ["Intimidation"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 12
         },
         "Bard":{
             "savings": ["dex","cha"],
@@ -19,7 +20,8 @@
                 "Wis": ["Animal Handling","Insight","Medicine","Perception","Survival"],
                 "Cha": ["Deception","Intimidation","Performance","Persuasion"]  
             },
-            "nSkills": 3
+            "nSkills": 3,
+            "hp": 8
         },
         "Cleric": {
             "savings": ["wis","cha"],
@@ -28,7 +30,8 @@
                 "Wis": ["Insight","Medicine"],
                 "Cha": ["Persuasion"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 8
         },
         "Druid": {
             "savings": ["int","wis"],
@@ -36,7 +39,8 @@
                 "Int": ["Arcana","Nature","Religion"],
                 "Wis": ["Animal Handling","Insight","Medicine","Perception","Survival"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 8
         },
         "Fighter": {
             "savings": ["str","con"],
@@ -47,7 +51,8 @@
                 "Wis": ["Animal Handling","Insight","Perception","Survival"],
                 "Cha": ["Intimidation"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 10
         },
         "Monk": {
             "savings": ["dex","str"],
@@ -57,7 +62,8 @@
                 "Int": ["History","Religion"],
                 "Wis": ["Insight"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 8
         },
         "Paladin": {
             "savings": ["wis","cha"],
@@ -67,7 +73,8 @@
                 "Wis": ["Insight","Medicine"],
                 "Cha": ["Intimidation","Persuasion"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 10
         },
         "Ranger": {
             "savings": ["str","dex"],
@@ -77,7 +84,8 @@
                 "Int": ["Investigation","Nature"],
                 "Wis": ["Animal Handling","Insight","Perception","Survival"]
             },
-            "nSkills": 3
+            "nSkills": 3,
+            "hp": 10
         },
         "Rogue": {
             "savings": ["dex","int"],
@@ -88,7 +96,8 @@
                 "Wis": ["Insight","Perception"],
                 "Cha": ["Deception","Intimidation","Performance","Persuasion"]
             },
-            "nSkills": 4
+            "nSkills": 4,
+            "hp": 8
         },
         "Sorcerer": {
             "savings": ["con","cha"],
@@ -97,7 +106,8 @@
                 "Wis": ["Insight"],
                 "Cha": ["Deception","Intimidation","Persuasion"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 6
         },
         "Warlock": {
             "savings": ["wis","cha"],
@@ -105,7 +115,8 @@
                 "Int": ["Arcana","History","Investigation","Nature","Religion"],
                 "Cha": ["Deception","Intimidation"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 8
         },
         "Wizard": {
             "savings": ["int","wis"],
@@ -113,7 +124,8 @@
                 "Int": ["Arcana","History","Investigation","Religion"],
                 "Wis": ["Insight","Medicine"]
             },
-            "nSkills": 2
+            "nSkills": 2,
+            "hp": 6
         }
     },
     "skillList": {

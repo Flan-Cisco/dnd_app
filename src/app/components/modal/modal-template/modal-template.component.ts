@@ -9,22 +9,19 @@ import { Stats } from 'src/app/models/stats.model';
   styleUrls: ['./modal-template.component.scss'],
 })
 export class ModalTemplateComponent implements OnInit {
-
   @Input() personaje: Personaje;
   @Input() stats: Stats;
   @Input() titulo: string;
 
   constructor(navParams: NavParams, private modalController: ModalController) {
-    this.personaje= navParams.get("personaje");
-    this.stats = navParams.get("status");
-    this.titulo = navParams.get("titulo");
+    this.personaje = navParams.get('personaje');
+    this.stats = navParams.get('status');
+    this.titulo = navParams.get('titulo');
   }
 
   ngOnInit() {}
 
   dismiss() {
-    this.modalController.dismiss({
-      'dismissed': true
-    })
+    this.modalController.dismiss();
   }
 }

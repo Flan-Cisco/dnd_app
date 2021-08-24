@@ -14,9 +14,9 @@
           <p class="skill">{{skill}}</p>
 
           <div class="bono-atributo">
-            <p [style.color]="calcularMod(personaje.stats[atributo.toLowerCase()])<0 ? '#ff4961':'rgb(121, 121, 121)'">{{calcularMod(personaje.stats[atributo.toLowerCase()]) | signoPipe}}</p>
+            <p [style.color]="calcularMod(personaje.stats[atributo])<0 ? '#ff4961':'rgb(121, 121, 121)'">{{calcularMod(personaje.stats[atributo]) | signoPipe}}</p>
             <ion-icon *ngIf="skillsSeleccionadas[skill]" id="icon" name="arrow-forward-sharp"></ion-icon>
-            <p *ngIf="skillsSeleccionadas[skill]" [style.color]="agregarProficiencia(personaje.stats[atributo.toLowerCase()], skillsSeleccionadas[skill])<0 ? '#ff4961':'rgb(121, 121, 121)'"> {{agregarProficiencia(personaje.stats[atributo.toLowerCase()],skillsSeleccionadas[skill]) | signoPipe}}</p>
+            <p *ngIf="skillsSeleccionadas[skill]" [style.color]="agregarProficiencia(personaje.stats[atributo], skillsSeleccionadas[skill])<0 ? '#ff4961':'rgb(121, 121, 121)'"> {{agregarProficiencia(personaje.stats[atributo],skillsSeleccionadas[skill]) | signoPipe}}</p>
           </div>
 
           <ion-checkbox id="checkbox" [(ngModel)]="skillsSeleccionadas[skill]" [disabled]="validarBack(skill) || validar() && !skillsSeleccionadas[skill]"></ion-checkbox>

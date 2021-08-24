@@ -4,8 +4,5 @@ export class Clase {
     skills: string[];
     nSkills: number;
 
-    constructor(){
-        
-    }
-
+    constructor() {}
 }

@@ -1,0 +1,20 @@
+.lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto);
+    background-color: #1e1e1e;
+    // margin-top: 10px;
+    padding-top: 5px;
+    padding-right: 15px;
+}
+
+.celda {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    // margin-top: 15px;
+    // margin-left: 15px;
+    // border-bottom: 0.3px solid #212121;
+}
+.atributo-stat {
+    justify-self: end;
+}

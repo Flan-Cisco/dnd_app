@@ -1,0 +1,76 @@
+* {
+    max-width: 70rem;
+}
+
+.grid-hp {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 328px;
+    justify-items: center;
+    margin-bottom: 15px;
+    text-align: center;
+    .hp {
+        margin-top: 7px;
+        width: 255px;
+        background-color: #1e1e1e;
+        border-radius: 4px;
+        align-items: center;
+        justify-items: center;
+        margin-right: 5px;
+
+        
+    }
+}
+
+.iniciativa-speed {
+    display: grid;
+    grid-template-columns: 85px 1fr 85px;
+    justify-items: center;
+    justify-content: space-evenly;
+    
+    .armor-class {
+        margin-right: 5px;
+    }
+    .fondo {
+        background-color: #1e1e1e;
+        border-radius: 4px;
+        padding: 0 15px;
+        
+        p {
+            margin: 7px 0;
+        }
+    }
+}
+.grid {
+    display: grid;
+    grid-template-rows: repeat(7,auto);
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 0 5px;
+}
+.row {
+    display: grid;
+    grid-template-columns: auto 20px auto;
+}
+.casilla-atributosRaza{
+    grid-column: 3;
+    align-self: end;
+}
+.row-doble {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.row-languages {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+@media (min-width: 650px) {
+    
+}

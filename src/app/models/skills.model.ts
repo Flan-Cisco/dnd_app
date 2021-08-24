@@ -1,5 +1,4 @@
 export class Skills {
-    
     athletics: number;
     acrobatics: number;
     animalHandling: number;

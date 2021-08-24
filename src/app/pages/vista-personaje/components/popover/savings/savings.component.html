@@ -2,12 +2,12 @@
   <div class="celda" *ngFor="let stat of saves; let i = index">
     <p>{{ atributos[i] }}</p>
     <p
-      *ngIf="modificador(stat, atributos[i]) != stat"
+      *ngIf="modificador(stat, atributos[i]) !== stat"
       [style.color]="personaje.proficiency < 0 ? '#ff4961' : '#545454'"
     >
       {{ stat | signoPipe }}
     </p>
-    <div class="icon" *ngIf="modificador(stat, atributos[i]) != stat">
+    <div class="icon" *ngIf="modificador(stat, atributos[i]) !== stat">
       <ion-icon name="arrow-forward-sharp"></ion-icon>
     </div>
     <p

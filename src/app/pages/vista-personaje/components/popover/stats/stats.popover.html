@@ -1,0 +1,21 @@
+<div class="popover">
+  <div class="celda-cabecera">
+    <p>Bono Racial</p>
+  </div>
+  <div class="celda" *ngFor="let atributo of atributos">
+    <p>{{atributo}}</p>
+    <div class="bonos-raza" *ngIf="personaje.statsBase[atributo] !== personaje.stats[atributo]">
+      <p>{{this.personaje.statsBase[atributo]}}</p>
+      <p [style.color] = "calcularModificador(personaje.statsBase[atributo]) < 0 ? 'rgba(255, 73, 97, 0.83)':'#545454'">{{calcularModificador(personaje.statsBase[atributo]) | signoPipe}}</p>
+    </div>
+    <div class="icono" *ngIf="personaje.statsBase[atributo] !== personaje.stats[atributo]">
+      <ion-icon name="arrow-forward-sharp"></ion-icon>
+    </div>
+    <div class="atributo">
+      <p>{{this.personaje.stats[atributo]}}</p>
+      <p [style.color] = "calcularModificador(this.personaje.stats[atributo]) < 0 ? 'rgba(255, 73, 97, 0.83)':'#545454'">{{calcularModificador(personaje.stats[atributo]) | signoPipe}}</p>
+      <!-- <p class="stat-bajo" *ngIf="this.stats[atributo] < 10">(-{{calcularModificador(this.stats[atributo])}})</p> -->
+    </div>
+
+  </div>
+</div>

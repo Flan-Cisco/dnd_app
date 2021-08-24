@@ -1,6 +1,5 @@
-import { Saves } from "./saves.model";
-import { Stats } from "./stats.model";
-
+import { Saves } from './saves.model';
+import { Stats } from './stats.model';
 
 export class Personaje {
     nombre: string;
@@ -13,9 +12,10 @@ export class Personaje {
     alineamiento: string;
     stats: Stats;
     statsBase: Stats;
+    bonoAny: Stats;
     proficiency: number;
     hp: number;
-    skills: Object;
+    skills: Record<string, any>;
     savings: Saves;
     languagesCommon: string[];
     languagesExotic: string[];
@@ -25,6 +25,4 @@ export class Personaje {
         this.id = new Date().getTime();
         this.nombre = nombre;
     }
-
-
 }

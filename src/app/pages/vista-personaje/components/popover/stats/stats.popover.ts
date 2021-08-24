@@ -4,7 +4,7 @@ import { Personaje } from 'src/app/models/personaje.model';
 import { ServService } from 'src/app/services/serv.service';
 
 @Component({
-  selector: 'stats-popover',
+  selector: 'app-stats-popover',
   templateUrl: './stats.popover.html',
   styleUrls: ['./stats.popover.scss'],
 })
@@ -14,33 +14,27 @@ export class StatsPopoverComponent implements OnInit {
 
 
   atributos: string[] = [
-    "Str",
-    "Dex",
-    "Con",
-    "Int",
-    "Wis",
-    "Cha"
+    'Str',
+    'Dex',
+    'Con',
+    'Int',
+    'Wis',
+    'Cha'
   ];
 
-  constructor(public popoverCtrl: PopoverController, private service:ServService, navParams: NavParams) {
-    this.personaje = navParams.get("personaje");
+  constructor(public popoverCtrl: PopoverController, private service: ServService, navParams: NavParams) {
+    this.personaje = navParams.get('personaje');
     console.log(this.personaje.stats);
-
-
-
-    
   }
-  
+
   calcularModificador(stat: number) {
-    return Math.floor((stat-10)/2)
+    return Math.floor((stat-10)/2);
   }
 
   ngOnInit() {}
 
   dismiss() {
-    this.popoverCtrl.dismiss({
-      'dismissed': true
-    })
+    this.popoverCtrl.dismiss();
   }
 
 }

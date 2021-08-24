@@ -1,14 +1,10 @@
-
-
 export class Stats {
-    str: number;
-    dex: number;
-    con: number;
-    int: number;
-    wis: number;
-    cha: number;
+    Str: number;
+    Dex: number;
+    Con: number;
+    Int: number;
+    Wis: number;
+    Cha: number;
 
-    constructor() {
-        
-    }
+    constructor() {}
 }

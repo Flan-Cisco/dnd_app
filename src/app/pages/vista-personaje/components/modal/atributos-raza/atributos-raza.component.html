@@ -1,0 +1,43 @@
+<section>
+  <ion-list class="grid">
+    <div class="descripcion">
+      <p>Distribute {{ totalStats }} points on your attributes</p>
+    </div>
+    <div class="celda" *ngFor="let atributo of atributos">
+      <ion-label class="atributo">
+        {{ atributo }}
+      </ion-label>
+      <div class="resultado" *ngIf="personaje.stats">
+        <p>{{calculoBonificacion(atributo)}}</p>
+        <ion-icon *ngIf="bonosAny[atributo] !== 0" name="arrow-forward-sharp"></ion-icon>
+        <div *ngIf="bonosAny[atributo] !== 0">
+          <p>{{calculoBonificacion(atributo, bonosAny[atributo])}}</p>
+        </div>
+      </div>
+      <div class="botones">
+        <button
+          [disabled]="setDisableMenos(atributo)"
+          [style.color]="bonosAny[atributo]!==0 ? '#a7a5a5' : '#545454'"
+          (click)="click(atributo, false)"
+        >
+          <ion-icon name="remove-outline"></ion-icon>
+        </button>
+        <p>+ {{ bonosAny[atributo] }}</p>
+        <!-- TODO desabilitar boton cuando el stat llegue a 20/ limitar valor de stat al asignar bono de raza a 20 -->
+        <button
+          [disabled]="(setDisableMas(atributo) || sumaTotal()) || totalBonificacion(atributo)"
+          [style.color]="(setDisableMas(atributo) || sumaTotal()) || totalBonificacion(atributo)? '#545454' : '#a7a5a5'"
+          (click)="click(atributo, true)"
+        >
+          <ion-icon name="add-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </ion-list>
+</section>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="guardar()" color="success">
+    <ion-icon name="save"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
